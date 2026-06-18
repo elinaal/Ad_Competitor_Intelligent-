@@ -1,0 +1,2661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sentinel · Hisense Competitive Intelligence Brief · 2025</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ════════════════════════════════════════════════════════════════
+   DESIGN TOKENS · Sentinel · v2.4
+═════════════════════════════════════════════════════════════════ */
+:root{
+  /* Surface */
+  --w:#FFFFFF;
+  --bg:#FAFAFC;
+  --off:#F5F5F7;
+  --line:rgba(0,0,0,.06);
+  --line-2:rgba(0,0,0,.10);
+
+  /* Text */
+  --ink-1:#1D1D1F;
+  --ink-2:#3A3A3C;
+  --ink-3:#6E6E73;
+  --ink-4:#8E8E93;
+  --ink-5:#AEAEB2;
+  --ink-6:#D1D1D6;
+  --ink-7:#E5E5EA;
+
+  /* Accent (locked palette) */
+  --blue:#0071E3;--blue-soft:#EBF3FE;
+  --red:#FF3B30;--red-soft:#FFF2F1;
+  --orange:#FF9F0A;--orange-soft:#FFF8EC;
+  --green:#34C759;--green-soft:#EDFAF2;
+  --purple:#AF52DE;--purple-soft:#F7EFFE;
+
+  /* Brand identity */
+  --samsung:#1428A0;--lg:#A50034;--tcl:#007DC5;--sony:#231F20;--hisense:#C8102E;
+
+  /* Type */
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  /* Elevation */
+  --e-1:0 1px 2px rgba(0,0,0,.04);
+  --e-2:0 4px 12px rgba(0,0,0,.04),0 1px 3px rgba(0,0,0,.03);
+  --e-3:0 12px 32px -8px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04);
+  --e-4:0 32px 64px -16px rgba(0,0,0,.12),0 8px 16px rgba(0,0,0,.04);
+
+  /* Radius */
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-2xl:28px;
+
+  /* Spacing scale (4pt) */
+  --s-1:4px;--s-2:8px;--s-3:12px;--s-4:16px;--s-5:24px;--s-6:32px;--s-7:48px;--s-8:64px;--s-9:96px;--s-10:128px;
+
+  /* Motion */
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --t-fast:.15s;--t-base:.25s;--t-slow:.45s;--t-xslow:.8s;
+
+  /* Layout */
+  --container:1240px;
+  --container-narrow:920px;
+  --gutter:24px;
+  --nav-h:56px;
+  --rail-w:240px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--sans);
+  font-size:14px;line-height:1.5;
+  color:var(--ink-1);background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-feature-settings:'ss01','cv11','tnum';
+  overflow-x:hidden;
+}
+::-webkit-scrollbar{width:8px;height:8px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--ink-6);border-radius:4px;}
+::-webkit-scrollbar-thumb:hover{background:var(--ink-5);}
+
+/* ════════════════════════════════════════════════════════════════
+   GRID SYSTEM · 12-column responsive
+═════════════════════════════════════════════════════════════════ */
+.container{max-width:var(--container);margin:0 auto;padding:0 var(--gutter);}
+.container-narrow{max-width:var(--container-narrow);margin:0 auto;padding:0 var(--gutter);}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s-5);}
+.col-3{grid-column:span 3;}
+.col-4{grid-column:span 4;}
+.col-5{grid-column:span 5;}
+.col-6{grid-column:span 6;}
+.col-7{grid-column:span 7;}
+.col-8{grid-column:span 8;}
+.col-9{grid-column:span 9;}
+.col-12{grid-column:span 12;}
+
+/* ════════════════════════════════════════════════════════════════
+   TYPOGRAPHY · Display scale
+═════════════════════════════════════════════════════════════════ */
+.t-display-xl{font-size:clamp(40px,6vw,84px);font-weight:700;line-height:1.02;letter-spacing:-.04em;}
+.t-display-lg{font-size:clamp(32px,4.5vw,56px);font-weight:700;line-height:1.05;letter-spacing:-.035em;}
+.t-display-md{font-size:clamp(24px,3vw,36px);font-weight:700;line-height:1.1;letter-spacing:-.025em;}
+.t-display-sm{font-size:20px;font-weight:600;line-height:1.25;letter-spacing:-.015em;}
+.t-body-lg{font-size:17px;line-height:1.6;color:var(--ink-3);font-weight:300;}
+.t-body{font-size:14px;line-height:1.6;color:var(--ink-3);}
+.t-body-sm{font-size:13px;line-height:1.55;color:var(--ink-3);}
+.t-caption{font-size:12px;line-height:1.5;color:var(--ink-4);}
+.t-mono{font-family:var(--mono);font-feature-settings:'tnum','zero';}
+.t-eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);
+}
+.t-eyebrow.accent{color:var(--blue);}
+
+/* ════════════════════════════════════════════════════════════════
+   DESIGN SYSTEM · Reusable atoms
+═════════════════════════════════════════════════════════════════ */
+
+/* Surface — base card */
+.surface{
+  background:var(--w);
+  border:1px solid var(--line);
+  border-radius:var(--r-xl);
+  box-shadow:var(--e-1);
+}
+.surface-flat{background:var(--w);border:1px solid var(--line);border-radius:var(--r-lg);}
+.surface-dark{
+  background:linear-gradient(135deg,var(--ink-1) 0%,#0E0E10 100%);
+  color:#fff;border-radius:var(--r-2xl);
+  position:relative;overflow:hidden;
+}
+.surface-dark::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 50% 40% at 80% 20%,rgba(100,169,247,.12),transparent 60%),
+    radial-gradient(ellipse 40% 30% at 20% 80%,rgba(175,82,222,.06),transparent 60%);
+  pointer-events:none;
+}
+.surface-dark > *{position:relative;z-index:1;}
+
+/* Pill — labels, statuses */
+.pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 10px;border-radius:100px;
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.04em;
+}
+.pill-dot{width:5px;height:5px;border-radius:50%;background:currentColor;flex-shrink:0;}
+.pill-red{background:var(--red-soft);color:var(--red);}
+.pill-orange{background:var(--orange-soft);color:var(--orange);}
+.pill-blue{background:var(--blue-soft);color:var(--blue);}
+.pill-green{background:var(--green-soft);color:var(--green);}
+.pill-purple{background:var(--purple-soft);color:var(--purple);}
+.pill-gray{background:var(--off);color:var(--ink-3);}
+
+/* Live indicator */
+.live{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:10.5px;color:var(--ink-4);
+  letter-spacing:.04em;
+}
+.live-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 0 rgba(52,199,89,.5);
+  animation:pulse 2s infinite;flex-shrink:0;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(52,199,89,.5);}
+  70%{box-shadow:0 0 0 6px rgba(52,199,89,0);}
+  100%{box-shadow:0 0 0 0 rgba(52,199,89,0);}
+}
+
+/* Button */
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 12px;border-radius:var(--r-sm);
+  font-size:12.5px;font-weight:500;
+  border:1px solid var(--line);background:var(--w);
+  color:var(--ink-2);cursor:pointer;
+  transition:all var(--t-fast) var(--ease);
+  user-select:none;
+}
+.btn:hover{border-color:var(--ink-5);color:var(--ink-1);}
+.btn-ghost{background:transparent;border-color:transparent;color:var(--ink-3);}
+.btn-ghost:hover{background:var(--off);color:var(--ink-1);}
+.btn-primary{background:var(--ink-1);color:#fff;border-color:var(--ink-1);}
+.btn-primary:hover{background:var(--ink-2);}
+.btn .chev{font-size:9px;transition:transform var(--t-base) var(--ease);display:inline-block;}
+.btn.open .chev{transform:rotate(180deg);}
+
+/* Kbd */
+.kbd{
+  font-family:var(--mono);font-size:10px;
+  padding:1px 5px;background:var(--off);border-radius:3px;
+  border:1px solid var(--line);color:var(--ink-3);
+}
+
+/* Divider */
+.divider{height:1px;background:var(--line);width:100%;}
+.divider-vert{width:1px;background:var(--line);height:20px;}
+
+/* Stack helpers */
+.stack{display:flex;flex-direction:column;}
+.row{display:flex;align-items:center;}
+.row-between{display:flex;align-items:center;justify-content:space-between;}
+.gap-1{gap:var(--s-1);} .gap-2{gap:var(--s-2);} .gap-3{gap:var(--s-3);} .gap-4{gap:var(--s-4);} .gap-5{gap:var(--s-5);} .gap-6{gap:var(--s-6);}
+
+/* ════════════════════════════════════════════════════════════════
+   NAVIGATION · Top + sticky exec rail
+═════════════════════════════════════════════════════════════════ */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(250,250,252,.78);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid var(--line);
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  padding:0 var(--s-5);gap:var(--s-3);
+}
+.nav-brand{
+  display:flex;align-items:center;gap:8px;
+  font-size:13.5px;font-weight:600;letter-spacing:-.01em;
+  flex-shrink:0;
+}
+.nav-logo{
+  width:24px;height:24px;border-radius:7px;
+  background:linear-gradient(135deg,var(--ink-1) 0%,var(--ink-2) 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+.nav-logo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 50%,rgba(0,113,227,.5));
+}
+.nav-logo svg{position:relative;z-index:1;}
+.nav-brand-meta{
+  font-family:var(--mono);font-size:10.5px;
+  color:var(--ink-4);letter-spacing:.04em;
+  padding-left:10px;margin-left:6px;
+  border-left:1px solid var(--line);
+}
+.nav-items{
+  display:flex;align-items:center;gap:2px;
+  margin-left:auto;margin-right:auto;
+  overflow-x:auto;scrollbar-width:none;
+}
+.nav-items::-webkit-scrollbar{display:none;}
+.nav-item{
+  font-size:12.5px;color:var(--ink-3);cursor:pointer;
+  padding:6px 12px;border-radius:6px;
+  white-space:nowrap;
+  transition:all var(--t-fast) var(--ease);
+  font-weight:500;
+}
+.nav-item:hover{color:var(--ink-1);background:var(--off);}
+.nav-item.active{color:var(--ink-1);background:var(--off);}
+
+.nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.nav-search{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:5px 8px 5px 10px;border-radius:6px;
+  background:var(--off);border:1px solid var(--line);
+  font-size:12px;color:var(--ink-4);cursor:pointer;
+  transition:all var(--t-fast) var(--ease);min-width:180px;
+}
+.nav-search:hover{border-color:var(--ink-5);}
+.nav-search-icon{width:11px;height:11px;}
+
+/* ════════════════════════════════════════════════════════════════
+   SECTION SHELL
+═════════════════════════════════════════════════════════════════ */
+.section{
+  padding:var(--s-9) 0;
+  position:relative;
+}
+.section-header{margin-bottom:var(--s-7);max-width:680px;}
+.section-eye{
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;
+}
+.section-eye-line{width:24px;height:1px;background:var(--ink-5);}
+.section-h{
+  font-size:clamp(28px,3.5vw,44px);
+  font-weight:700;letter-spacing:-.03em;line-height:1.08;
+  margin-bottom:14px;
+}
+.section-h em{color:var(--ink-4);font-style:normal;font-weight:600;}
+.section-sub{
+  font-size:16px;color:var(--ink-3);line-height:1.6;
+  font-weight:300;max-width:580px;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   HERO · Cinematic launch
+═════════════════════════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;
+  background:linear-gradient(180deg,var(--ink-1) 0%,#0A0A0C 100%);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  padding:120px var(--gutter) 80px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 20%,rgba(0,113,227,.18),transparent 65%),
+    radial-gradient(ellipse 40% 30% at 85% 90%,rgba(175,82,222,.08),transparent 60%);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,#000 20%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,#000 20%,transparent 75%);
+}
+.hero-content{position:relative;z-index:2;width:100%;max-width:var(--container);}
+.hero-chip{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:5px 14px 5px 6px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:100px;margin-bottom:32px;
+  font-size:12px;color:rgba(255,255,255,.7);
+  backdrop-filter:blur(20px);
+  opacity:0;animation:hero-fade .8s var(--ease) .1s forwards;
+}
+.hero-chip-mark{
+  width:20px;height:20px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue) 0%,#64A9F7 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:700;color:#fff;
+}
+.hero-chip-divider{width:1px;height:12px;background:rgba(255,255,255,.12);margin:0 2px;}
+.hero-chip-meta{
+  font-family:var(--mono);font-size:10.5px;
+  color:rgba(255,255,255,.5);letter-spacing:.04em;
+}
+
+.hero-eyebrow{
+  font-family:var(--mono);font-size:11px;
+  color:rgba(255,255,255,.4);letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:24px;
+  opacity:0;animation:hero-fade .8s var(--ease) .15s forwards;
+}
+.hero-h1{
+  font-size:clamp(38px,5.8vw,82px);
+  font-weight:700;line-height:1.02;letter-spacing:-.035em;
+  color:#fff;max-width:1000px;margin-bottom:28px;
+  opacity:0;animation:hero-fade .9s var(--ease) .25s forwards;
+}
+.hero-h1 .accent-grad{
+  background:linear-gradient(135deg,#fff 0%,#fff 40%,#64A9F7 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  display:inline-block;
+}
+.hero-sub{
+  font-size:clamp(15px,1.5vw,18px);
+  color:rgba(255,255,255,.55);font-weight:300;
+  max-width:560px;line-height:1.6;margin-bottom:64px;
+  opacity:0;animation:hero-fade .9s var(--ease) .35s forwards;
+}
+.hero-sub strong{color:rgba(255,255,255,.85);font-weight:500;}
+
+/* Hero KPI Tiles — Insight first */
+.hero-kpis{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.06);border-radius:var(--r-lg);
+  overflow:hidden;max-width:980px;
+  opacity:0;animation:hero-fade 1s var(--ease) .5s forwards;
+}
+.kpi{
+  padding:28px 32px;
+  background:rgba(255,255,255,.015);
+  position:relative;
+  transition:background var(--t-base) var(--ease);
+}
+.kpi:hover{background:rgba(255,255,255,.03);}
+.kpi-label{
+  font-family:var(--mono);font-size:10.5px;
+  color:rgba(255,255,255,.4);letter-spacing:.08em;
+  text-transform:uppercase;margin-bottom:18px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.kpi-trend{
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.04em;padding:2px 7px;border-radius:4px;
+}
+.kpi-trend.up{background:rgba(255,59,48,.12);color:#FF8074;}
+.kpi-trend.down{background:rgba(52,199,89,.12);color:#5DD27E;}
+.kpi-trend.flat{background:rgba(255,159,10,.12);color:#FFB547;}
+.kpi-value{
+  font-size:clamp(40px,4.5vw,56px);font-weight:700;
+  letter-spacing:-.04em;line-height:1;margin-bottom:14px;
+  font-family:var(--mono);
+}
+.kpi-value.red{color:#FF8074;} .kpi-value.blue{color:#64A9F7;} .kpi-value.orange{color:#FFB547;}
+.kpi-value .unit{font-size:.5em;color:rgba(255,255,255,.4);font-weight:600;}
+.kpi-insight{
+  font-size:13px;color:rgba(255,255,255,.65);line-height:1.55;
+}
+.kpi-insight strong{color:rgba(255,255,255,.9);font-weight:500;}
+
+/* Hero scroll cue */
+.hero-cue{
+  position:absolute;bottom:32px;left:50%;
+  transform:translateX(-50%);
+  color:rgba(255,255,255,.3);font-size:11px;
+  font-family:var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  cursor:pointer;
+  opacity:0;animation:hero-fade 1s var(--ease) 1.2s forwards;
+}
+.hero-cue-line{
+  width:1px;height:32px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.5),transparent);
+  animation:cue-slide 2.4s ease-in-out infinite;
+}
+@keyframes cue-slide{
+  0%,100%{transform:translateY(-6px);opacity:.3;}
+  50%{transform:translateY(6px);opacity:.8;}
+}
+@keyframes hero-fade{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ════════════════════════════════════════════════════════════════
+   STICKY EXEC SUMMARY RAIL
+═════════════════════════════════════════════════════════════════ */
+.layout-with-rail{
+  display:grid;
+  grid-template-columns:var(--rail-w) 1fr;
+  gap:var(--s-6);
+  max-width:var(--container);margin:0 auto;
+  padding:0 var(--gutter);
+}
+.rail{
+  position:sticky;top:calc(var(--nav-h) + var(--s-5));
+  align-self:start;
+  max-height:calc(100vh - var(--nav-h) - var(--s-5) - var(--s-4));
+  overflow-y:auto;scrollbar-width:none;
+  padding-bottom:var(--s-5);
+}
+.rail::-webkit-scrollbar{display:none;}
+.rail-section{margin-bottom:var(--s-5);}
+.rail-eyebrow{
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);
+  margin-bottom:12px;
+}
+.rail-tldr{
+  padding:14px 16px;
+  border-radius:var(--r-md);
+  background:var(--w);border:1px solid var(--line);
+  font-size:12.5px;color:var(--ink-2);
+  line-height:1.55;margin-bottom:10px;
+  position:relative;
+}
+.rail-tldr::before{
+  content:'';position:absolute;left:0;top:14px;bottom:14px;width:3px;
+  border-radius:0 2px 2px 0;background:var(--accent,var(--blue));
+}
+.rail-tldr.threat{--accent:var(--red);}
+.rail-tldr.risk{--accent:var(--orange);}
+.rail-tldr.opp{--accent:var(--green);}
+.rail-tldr-label{
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:6px;
+  color:var(--accent);
+}
+
+.rail-toc{display:flex;flex-direction:column;gap:2px;}
+.rail-toc-item{
+  display:flex;align-items:center;gap:10px;
+  padding:7px 12px;border-radius:6px;
+  font-size:12.5px;color:var(--ink-3);cursor:pointer;
+  transition:all var(--t-fast) var(--ease);
+}
+.rail-toc-item:hover{background:var(--off);color:var(--ink-1);}
+.rail-toc-item.active{background:var(--w);color:var(--ink-1);font-weight:500;box-shadow:var(--e-1);}
+.rail-toc-num{
+  font-family:var(--mono);font-size:10px;color:var(--ink-5);
+  flex-shrink:0;width:18px;
+}
+.rail-toc-item.active .rail-toc-num{color:var(--blue);}
+
+/* ════════════════════════════════════════════════════════════════
+   AI INSIGHT CARD — System voice
+═════════════════════════════════════════════════════════════════ */
+.ai-card{
+  background:linear-gradient(135deg,var(--ink-1) 0%,#0E0E10 100%);
+  border-radius:var(--r-xl);
+  padding:28px 32px;color:#fff;
+  position:relative;overflow:hidden;
+}
+.ai-card::before{
+  content:'';position:absolute;
+  top:-50%;right:-10%;width:50%;height:200%;
+  background:radial-gradient(ellipse,rgba(100,169,247,.18),transparent 60%);
+  pointer-events:none;
+}
+.ai-card-hdr{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:14px;position:relative;z-index:1;
+}
+.ai-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 10px 4px 6px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:100px;
+  font-family:var(--mono);font-size:10px;
+  color:rgba(255,255,255,.75);letter-spacing:.04em;
+}
+.ai-badge-mark{
+  width:14px;height:14px;border-radius:50%;
+  background:linear-gradient(135deg,#64A9F7 0%,#AF52DE 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:7px;font-weight:700;color:#fff;letter-spacing:.04em;
+}
+.ai-confidence{
+  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:10px;
+  color:rgba(255,255,255,.4);
+}
+.ai-conf-meter{display:flex;gap:2px;}
+.ai-conf-meter span{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(255,255,255,.15);
+}
+.ai-conf-meter span.f{background:#5DD27E;}
+.ai-card-body{
+  font-size:15px;line-height:1.7;
+  color:rgba(255,255,255,.82);
+  position:relative;z-index:1;max-width:780px;
+}
+.ai-card-body strong{color:#fff;font-weight:500;}
+
+/* ════════════════════════════════════════════════════════════════
+   THREAT OVERVIEW · Battlefield dashboard
+═════════════════════════════════════════════════════════════════ */
+.threat-board{
+  background:var(--w);border:1px solid var(--line);
+  border-radius:var(--r-2xl);overflow:hidden;
+  box-shadow:var(--e-2);
+}
+.threat-spectrum{
+  height:5px;
+  background:linear-gradient(90deg,
+    var(--green) 0%,var(--green) 50%,
+    var(--orange) 50%,var(--orange) 70%,
+    var(--red) 70%,var(--red) 90%,
+    #B91D14 90%,#B91D14 100%);
+  position:relative;
+}
+.threat-spectrum::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,.2),transparent);
+}
+.threat-inner{padding:36px 40px;}
+.threat-hdr{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:32px;gap:24px;flex-wrap:wrap;
+}
+.threat-title{
+  font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;
+}
+.threat-meta{
+  display:flex;flex-wrap:wrap;gap:14px;
+  font-size:12.5px;color:var(--ink-4);
+}
+.threat-meta-item{display:flex;align-items:center;gap:5px;}
+.threat-status-stack{
+  display:flex;flex-direction:column;gap:4px;align-items:flex-end;
+}
+.threat-status-item{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:11px;color:var(--ink-3);
+}
+.threat-status-item strong{color:var(--ink-1);font-weight:600;}
+
+/* Threat rows */
+.threat-rows{display:flex;flex-direction:column;gap:6px;}
+.threat-row{
+  display:grid;
+  grid-template-columns:140px 1fr 160px 80px;
+  gap:18px;align-items:center;
+  padding:14px 16px;border-radius:var(--r-md);
+  transition:background var(--t-base) var(--ease);
+}
+.threat-row:hover{background:var(--off);}
+.threat-brand{
+  display:flex;align-items:center;gap:10px;
+  font-size:14px;font-weight:600;
+}
+.threat-brand-mark{
+  width:28px;height:28px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff;
+  letter-spacing:-.02em;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15);
+}
+.threat-track{
+  height:32px;background:var(--off);
+  border-radius:var(--r-sm);overflow:hidden;
+  position:relative;
+}
+.threat-fill{
+  height:100%;border-radius:var(--r-sm);
+  display:flex;align-items:center;padding-left:14px;
+  font-family:var(--mono);font-size:12px;font-weight:600;
+  color:rgba(255,255,255,.95);
+  transition:width 1.4s var(--ease);
+  position:relative;
+}
+.threat-fill::after{
+  content:'';position:absolute;top:0;right:0;bottom:0;width:2px;
+  background:rgba(255,255,255,.6);
+  box-shadow:0 0 8px rgba(255,255,255,.5);
+}
+.threat-reason{
+  font-family:var(--mono);font-size:11px;
+  color:var(--ink-4);line-height:1.4;text-align:right;
+}
+.threat-reason strong{display:block;color:var(--ink-2);font-weight:600;font-size:11.5px;}
+.threat-score-cell{
+  text-align:right;
+  display:flex;flex-direction:column;align-items:flex-end;gap:3px;
+}
+.threat-score-num{
+  font-family:var(--mono);font-size:24px;font-weight:700;
+  letter-spacing:-.03em;line-height:1;
+}
+.threat-delta{
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  display:inline-flex;align-items:center;gap:3px;
+}
+.threat-delta.up{color:var(--red);}
+.threat-delta.down{color:var(--green);}
+.threat-delta.flat{color:var(--ink-5);}
+
+.threat-axis{
+  display:grid;grid-template-columns:140px 1fr 160px 80px;
+  gap:18px;padding:12px 16px 0;
+  font-family:var(--mono);font-size:9.5px;
+  color:var(--ink-5);letter-spacing:.06em;text-transform:uppercase;
+}
+.threat-axis-scale{display:flex;justify-content:space-between;position:relative;}
+.threat-axis-scale::before{
+  content:'';position:absolute;top:50%;left:0;right:0;height:1px;
+  background:var(--line);z-index:0;
+}
+.threat-axis-scale span{background:var(--w);padding:0 6px;z-index:1;position:relative;}
+
+.threat-legend{
+  display:flex;gap:24px;margin-top:24px;
+  padding-top:20px;border-top:1px solid var(--line);
+  flex-wrap:wrap;align-items:center;
+}
+.threat-legend-item{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:11px;color:var(--ink-3);
+}
+.threat-legend-swatch{width:10px;height:10px;border-radius:3px;}
+.threat-legend-meta{
+  margin-left:auto;font-family:var(--mono);
+  font-size:10.5px;color:var(--ink-4);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   STRATEGIC RECOMMENDATION PANEL
+═════════════════════════════════════════════════════════════════ */
+.reco-panel{
+  background:var(--w);border:1px solid var(--line);
+  border-radius:var(--r-xl);padding:0;overflow:hidden;
+  box-shadow:var(--e-1);
+}
+.reco-row{
+  display:grid;grid-template-columns:48px 1fr auto;
+  gap:18px;align-items:center;
+  padding:20px 24px;
+  border-bottom:1px solid var(--line);
+  cursor:pointer;
+  transition:background var(--t-fast) var(--ease);
+}
+.reco-row:last-child{border-bottom:none;}
+.reco-row:hover{background:var(--off);}
+.reco-rank{
+  font-family:var(--mono);font-size:22px;font-weight:700;
+  letter-spacing:-.03em;color:var(--ink-5);
+}
+.reco-row.priority .reco-rank{color:var(--green);}
+.reco-row.fast .reco-rank{color:var(--blue);}
+.reco-content{display:flex;flex-direction:column;gap:4px;}
+.reco-title{
+  font-size:16px;font-weight:600;letter-spacing:-.015em;line-height:1.3;
+}
+.reco-meta{
+  font-family:var(--mono);font-size:11px;color:var(--ink-4);
+  display:flex;align-items:center;gap:10px;
+}
+.reco-meta strong{color:var(--ink-2);font-weight:600;}
+.reco-expand-btn{
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--ink-4);
+  font-family:var(--mono);letter-spacing:.04em;
+}
+.reco-row .chev{font-size:9px;transition:transform var(--t-base);}
+.reco-row.open .chev{transform:rotate(180deg);}
+.reco-expand{
+  display:none;
+  grid-column:1/-1;
+  padding:0 24px 20px 90px;
+}
+.reco-row.open + .reco-expand{display:block;animation:slide-down var(--t-base) var(--ease);}
+.reco-expand-body{
+  font-size:14px;color:var(--ink-2);line-height:1.7;
+  max-width:680px;
+  padding:8px 0 0;
+  border-top:1px solid var(--line);
+  margin-top:0;
+  padding-top:18px;
+}
+@keyframes slide-down{
+  from{opacity:0;transform:translateY(-6px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ════════════════════════════════════════════════════════════════
+   OPPORTUNITY DETECTION
+═════════════════════════════════════════════════════════════════ */
+.opp-card{
+  background:var(--w);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:24px;
+  transition:all var(--t-base) var(--ease);
+  position:relative;overflow:hidden;
+  cursor:pointer;
+}
+.opp-card::before{
+  content:'';position:absolute;top:0;left:0;height:2px;width:0;
+  background:var(--accent);
+  transition:width var(--t-slow) var(--ease);
+}
+.opp-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--e-3);
+  border-color:transparent;
+}
+.opp-card:hover::before{width:100%;}
+.opp-card-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:18px;
+}
+.opp-score{
+  font-family:var(--mono);font-size:36px;font-weight:700;
+  letter-spacing:-.04em;line-height:1;color:var(--accent);
+}
+.opp-title{
+  font-size:15px;font-weight:600;line-height:1.35;
+  letter-spacing:-.01em;margin-bottom:8px;
+}
+.opp-text{
+  font-size:13px;color:var(--ink-3);line-height:1.6;
+}
+.opp-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:18px;padding-top:14px;
+  border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:10px;color:var(--ink-4);
+  letter-spacing:.04em;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   COMPETITOR BRAND CARDS · Evidence layer
+═════════════════════════════════════════════════════════════════ */
+.brand-card{
+  background:var(--w);border:1px solid var(--line);
+  border-radius:var(--r-xl);overflow:hidden;
+  transition:box-shadow var(--t-base) var(--ease);
+}
+.brand-card:hover{box-shadow:var(--e-2);}
+.brand-card-hdr{
+  display:grid;grid-template-columns:1fr auto;gap:20px;
+  padding:28px 32px 24px;align-items:start;
+  position:relative;
+}
+.brand-card-hdr::before{
+  content:'';position:absolute;top:0;left:0;
+  width:3px;height:100%;background:var(--brand);
+}
+.brand-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:4px 11px;border-radius:100px;
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.brand-tag-dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+.brand-headline{
+  font-size:22px;font-weight:700;letter-spacing:-.02em;
+  line-height:1.25;margin-bottom:10px;max-width:640px;
+}
+.brand-context{
+  font-size:14px;color:var(--ink-3);line-height:1.65;
+  max-width:640px;
+}
+.brand-ring{
+  width:92px;height:92px;position:relative;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.brand-ring svg{width:100%;height:100%;transform:rotate(-90deg);}
+.brand-ring-bg{fill:none;stroke:var(--ink-7);stroke-width:6;}
+.brand-ring-fill{
+  fill:none;stroke-width:6;stroke-linecap:round;
+  stroke-dasharray:264;stroke-dashoffset:264;
+  transition:stroke-dashoffset 1.6s var(--ease);
+}
+.brand-ring-num{
+  position:absolute;
+  font-family:var(--mono);font-size:30px;font-weight:700;
+  letter-spacing:-.04em;line-height:1;
+}
+.brand-ring-lbl{
+  position:absolute;bottom:-20px;left:50%;
+  transform:translateX(-50%);
+  font-family:var(--mono);font-size:9.5px;font-weight:600;
+  color:var(--ink-4);letter-spacing:.06em;text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.brand-card-body{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;
+  background:var(--line);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.brand-fact{
+  background:var(--w);padding:20px 24px;
+  transition:background var(--t-fast);
+}
+.brand-fact:hover{background:var(--off);}
+.brand-fact-lbl{
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  color:var(--ink-4);text-transform:uppercase;letter-spacing:.08em;
+  margin-bottom:8px;
+}
+.brand-fact-val{
+  font-size:13.5px;font-weight:500;color:var(--ink-1);
+  line-height:1.5;
+}
+
+.brand-card-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 32px;background:var(--off);gap:12px;
+}
+.brand-card-meta{
+  font-family:var(--mono);font-size:10.5px;color:var(--ink-4);
+  display:flex;align-items:center;gap:8px;
+}
+
+/* Brand timeline */
+.brand-timeline{padding:20px 32px;border-bottom:1px solid var(--line);}
+.timeline-hdr{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:18px;
+}
+.timeline-lbl{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+}
+.timeline-meta{font-family:var(--mono);font-size:10px;color:var(--ink-4);}
+.timeline-wrap{position:relative;overflow-x:auto;padding-bottom:4px;}
+.timeline{display:flex;min-width:480px;position:relative;}
+.timeline::before{
+  content:'';position:absolute;top:18px;left:10%;right:10%;height:2px;
+  background:linear-gradient(90deg,var(--ink-7) 0%,var(--ink-6) 75%,var(--brand) 100%);
+  border-radius:2px;
+}
+.timeline-col{
+  flex:1;padding:0 10px;position:relative;
+  display:flex;flex-direction:column;
+}
+.timeline-year{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  color:var(--ink-3);margin-bottom:6px;
+  display:flex;align-items:center;gap:8px;
+}
+.timeline-year::before{
+  content:'';width:8px;height:8px;border-radius:50%;
+  background:var(--w);border:2px solid var(--ink-5);
+  position:relative;z-index:1;
+}
+.timeline-col.current .timeline-year{color:var(--brand);}
+.timeline-col.current .timeline-year::before{
+  background:var(--brand);border-color:var(--brand);
+  box-shadow:0 0 0 4px rgba(0,113,227,.12);
+}
+.timeline-bubble{
+  background:var(--off);border:1px solid var(--line);
+  border-radius:var(--r-sm);padding:9px 12px;
+  font-size:12px;font-weight:500;color:var(--ink-2);
+  margin-top:14px;
+}
+.timeline-bubble.current{
+  background:var(--blue-soft);border-color:rgba(0,113,227,.18);
+  color:var(--blue);font-weight:600;
+}
+
+/* Brand creative analysis (collapsed) */
+.brand-creative{
+  display:none;padding:0;
+  background:var(--off);border-top:1px solid var(--line);
+}
+.brand-creative.open{display:block;animation:slide-down var(--t-base) var(--ease);}
+.brand-creative-inner{padding:24px 32px;}
+.brand-creative-lbl{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+  margin-bottom:16px;
+}
+.star-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.star-item{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:13px 16px;background:var(--w);border:1px solid var(--line);
+  border-radius:var(--r-sm);
+}
+.star-lbl{font-size:13px;font-weight:500;}
+.star-meter{display:inline-flex;align-items:center;gap:7px;}
+.stars{display:inline-flex;gap:2px;}
+.stars span{font-size:13px;}
+.stars .f{color:var(--orange);}
+.stars .e{color:var(--ink-6);}
+.star-num{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);}
+.brand-creative-note{
+  margin-top:14px;padding:16px 18px;
+  background:var(--w);border:1px solid var(--line);
+  border-left:3px solid var(--blue);border-radius:var(--r-sm);
+  font-size:13px;color:var(--ink-2);line-height:1.65;
+}
+.brand-creative-note strong{color:var(--ink-1);font-weight:600;}
+
+/* ════════════════════════════════════════════════════════════════
+   POSITIONING MATRIX · Battlefield map
+═════════════════════════════════════════════════════════════════ */
+.matrix-wrap{
+  background:var(--w);border:1px solid var(--line);
+  border-radius:var(--r-2xl);padding:32px;
+  box-shadow:var(--e-2);
+}
+.matrix-hdr{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:24px;flex-wrap:wrap;gap:14px;
+}
+.matrix-title-block{display:flex;flex-direction:column;gap:4px;}
+.matrix-title{font-size:17px;font-weight:600;letter-spacing:-.015em;}
+.matrix-axes{font-family:var(--mono);font-size:11px;color:var(--ink-4);}
+.matrix-controls{
+  display:flex;gap:4px;padding:3px;
+  background:var(--off);border-radius:var(--r-sm);
+  border:1px solid var(--line);
+}
+.matrix-control{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  padding:5px 11px;border-radius:5px;color:var(--ink-3);
+  cursor:pointer;transition:all var(--t-fast);
+}
+.matrix-control.active{background:var(--w);color:var(--ink-1);box-shadow:var(--e-1);}
+
+#matrix{
+  position:relative;width:100%;aspect-ratio:1.8;
+  background:linear-gradient(135deg,#FAFAFC 0%,#FFFFFF 100%);
+  border-radius:var(--r-lg);border:1px solid var(--line);
+  overflow:hidden;
+}
+#matrix::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,0,0,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,0,0,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.matrix-axis-h{
+  position:absolute;width:100%;height:1px;top:50%;
+  background:linear-gradient(90deg,transparent 5%,var(--ink-5) 25%,var(--ink-5) 75%,transparent 95%);
+}
+.matrix-axis-v{
+  position:absolute;height:100%;width:1px;left:50%;
+  background:linear-gradient(180deg,transparent 5%,var(--ink-5) 25%,var(--ink-5) 75%,transparent 95%);
+}
+.matrix-quad-lbl{
+  position:absolute;
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;
+  background:var(--w);padding:4px 10px;border-radius:6px;
+  border:1px solid var(--line);z-index:4;
+}
+.matrix-zone-white{
+  position:absolute;
+  border:1.5px dashed rgba(0,113,227,.32);
+  background:radial-gradient(circle,rgba(0,113,227,.06),rgba(0,113,227,.015));
+  border-radius:50%;pointer-events:none;
+  animation:zone-pulse 4s ease-in-out infinite;
+}
+@keyframes zone-pulse{
+  0%,100%{transform:scale(1);opacity:1;}
+  50%{transform:scale(1.05);opacity:.85;}
+}
+.matrix-zone-overlap{
+  position:absolute;
+  border:1px dashed rgba(255,159,10,.4);
+  background:radial-gradient(circle,rgba(255,159,10,.05),rgba(255,159,10,.01));
+  border-radius:50%;pointer-events:none;
+}
+.matrix-zone-lbl{
+  position:absolute;
+  font-family:var(--mono);font-size:9.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  z-index:5;
+}
+
+.matrix-pin{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  cursor:pointer;z-index:10;
+  transition:transform var(--t-base) var(--ease);
+}
+.matrix-pin:hover{transform:translate(-50%,-50%) scale(1.05);}
+.matrix-pin:hover .matrix-card{
+  opacity:1;
+  transform:translateX(-50%) translateY(-8px) scale(1);
+  pointer-events:auto;
+}
+.matrix-pin-dot{
+  width:16px;height:16px;border-radius:50%;
+  border:3px solid #fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.16),0 0 0 1px rgba(0,0,0,.05);
+  margin:0 auto 8px;position:relative;
+}
+.matrix-pin.featured .matrix-pin-dot{width:22px;height:22px;}
+.matrix-pin-dot::before{
+  content:'';position:absolute;inset:-4px;
+  border-radius:50%;border:2px solid currentColor;
+  opacity:0;animation:pin-pulse 2.5s ease-out infinite;
+}
+.matrix-pin.featured .matrix-pin-dot::before{opacity:1;animation:pin-pulse 2s ease-out infinite;}
+@keyframes pin-pulse{
+  0%{transform:scale(1);opacity:.5;}
+  100%{transform:scale(1.8);opacity:0;}
+}
+.matrix-pin-lbl{
+  font-size:11.5px;font-weight:600;text-align:center;white-space:nowrap;
+  padding:3px 9px;background:var(--w);border-radius:6px;
+  border:1px solid var(--line);box-shadow:var(--e-1);
+}
+.matrix-card{
+  position:absolute;left:50%;bottom:calc(100% + 6px);
+  transform:translateX(-50%) translateY(0) scale(.96);
+  width:240px;background:var(--w);
+  border:1px solid var(--line);border-radius:var(--r-md);
+  padding:14px 16px;box-shadow:var(--e-4);
+  opacity:0;pointer-events:none;
+  transition:all var(--t-base) var(--ease);
+  text-align:left;z-index:20;
+}
+.matrix-card-head{
+  font-size:13.5px;font-weight:600;margin-bottom:6px;
+  letter-spacing:-.005em;
+}
+.matrix-card-body{
+  font-size:11.5px;color:var(--ink-3);line-height:1.55;
+}
+.matrix-card-meta{
+  display:flex;gap:12px;margin-top:10px;
+  padding-top:10px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:10px;color:var(--ink-4);
+}
+.matrix-card-meta strong{color:var(--ink-2);font-weight:600;}
+
+.matrix-callouts{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;
+}
+.callout{
+  border-radius:var(--r-md);padding:16px 18px;
+  background:var(--off);border:1px solid var(--line);
+}
+.callout.warn{
+  background:linear-gradient(135deg,var(--w),var(--orange-soft));
+  border-color:rgba(255,159,10,.2);
+}
+.callout.opp{
+  background:linear-gradient(135deg,var(--w),var(--blue-soft));
+  border-color:rgba(0,113,227,.18);
+}
+.callout-head{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:8px;display:flex;align-items:center;gap:6px;
+}
+.callout.warn .callout-head{color:var(--orange);}
+.callout.opp .callout-head{color:var(--blue);}
+.callout-body{font-size:13px;color:var(--ink-2);line-height:1.6;}
+
+/* ════════════════════════════════════════════════════════════════
+   INTELLIGENCE TABLE
+═════════════════════════════════════════════════════════════════ */
+.intel-card{
+  background:var(--w);border:1px solid var(--line);
+  border-radius:var(--r-xl);overflow:hidden;
+  box-shadow:var(--e-1);
+}
+.intel-toolbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 20px;border-bottom:1px solid var(--line);
+  background:var(--off);gap:16px;flex-wrap:wrap;
+}
+.intel-meta{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--mono);font-size:11px;color:var(--ink-4);
+  flex-wrap:wrap;
+}
+.intel-meta strong{color:var(--ink-1);font-weight:600;}
+.intel-meta-divider{color:var(--ink-6);}
+.intel-filters{display:flex;gap:6px;}
+.intel-filter{
+  font-family:var(--mono);font-size:10.5px;font-weight:500;
+  padding:5px 11px;border-radius:6px;
+  background:var(--w);border:1px solid var(--line);color:var(--ink-3);
+  cursor:pointer;transition:all var(--t-fast);
+}
+.intel-filter:hover{border-color:var(--ink-5);color:var(--ink-1);}
+.intel-filter.active{background:var(--ink-1);color:#fff;border-color:var(--ink-1);}
+
+.intel-table{width:100%;border-collapse:collapse;}
+.intel-table thead th{
+  text-align:left;padding:14px 20px;
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-4);
+  border-bottom:1px solid var(--line);
+}
+.intel-table td{
+  padding:18px 20px;border-bottom:1px solid var(--line);
+  color:var(--ink-2);vertical-align:middle;font-size:13.5px;
+}
+.intel-table tr:last-child td{border-bottom:none;}
+.intel-table tr.row{cursor:pointer;transition:background var(--t-fast);}
+.intel-table tr.row:hover{background:var(--off);}
+.intel-finding{font-weight:500;color:var(--ink-1);max-width:280px;}
+.conf-meter{display:flex;align-items:center;gap:10px;min-width:120px;}
+.conf-bar{
+  height:5px;flex:1;background:var(--ink-7);
+  border-radius:3px;overflow:hidden;position:relative;
+}
+.conf-fill{
+  height:100%;border-radius:3px;
+  background:linear-gradient(90deg,var(--blue),#64A9F7);
+  position:relative;
+  transition:width 1.5s var(--ease);
+}
+.conf-pct{
+  font-family:var(--mono);font-size:11.5px;font-weight:600;
+  color:var(--ink-2);min-width:36px;text-align:right;
+}
+.intel-evidence{
+  display:none;background:var(--off);
+}
+.intel-evidence.open{display:table-row;}
+.intel-evidence td{padding:0;border-bottom:1px solid var(--line);}
+.intel-evidence-inner{
+  padding:18px 24px;
+  border-left:3px solid var(--blue);margin:0;
+  background:var(--off);
+  font-size:13px;color:var(--ink-3);line-height:1.7;
+  animation:slide-down var(--t-base) var(--ease);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   THREAT-FORCE GRID  (replaces market forces section)
+═════════════════════════════════════════════════════════════════ */
+.force-card{
+  background:var(--w);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:28px;
+  position:relative;overflow:hidden;
+  transition:transform var(--t-base) var(--ease),box-shadow var(--t-base) var(--ease);
+}
+.force-card:hover{transform:translateY(-2px);box-shadow:var(--e-2);}
+.force-card::before{
+  content:'';position:absolute;
+  top:-50%;right:-30%;width:60%;height:60%;
+  border-radius:50%;filter:blur(60px);opacity:.4;
+  pointer-events:none;
+  transition:opacity var(--t-slow) var(--ease);
+}
+.force-card:hover::before{opacity:.7;}
+.force-card[data-type="threat"]::before{background:rgba(255,59,48,.18);}
+.force-card[data-type="trend"]::before{background:rgba(0,113,227,.18);}
+.force-card[data-type="opp"]::before{background:rgba(52,199,89,.18);}
+
+.force-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 12px;border-radius:100px;
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.04em;text-transform:uppercase;
+  margin-bottom:22px;position:relative;z-index:1;
+}
+.force-tag-dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+.force-icon{
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;font-size:22px;
+  position:relative;z-index:1;
+  border:1px solid var(--line);background:var(--off);
+}
+.force-card[data-type="threat"] .force-icon{background:linear-gradient(135deg,#fff,var(--red-soft));border-color:rgba(255,59,48,.15);}
+.force-card[data-type="trend"] .force-icon{background:linear-gradient(135deg,#fff,var(--blue-soft));border-color:rgba(0,113,227,.15);}
+.force-card[data-type="opp"] .force-icon{background:linear-gradient(135deg,#fff,var(--green-soft));border-color:rgba(52,199,89,.15);}
+.force-title{
+  font-size:20px;font-weight:700;letter-spacing:-.02em;
+  margin-bottom:10px;position:relative;z-index:1;
+}
+.force-desc{
+  font-size:13.5px;color:var(--ink-3);line-height:1.65;
+  position:relative;z-index:1;margin-bottom:22px;
+}
+.force-impact{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:18px;border-top:1px solid var(--line);
+  position:relative;z-index:1;
+}
+.force-impact-lbl{
+  font-family:var(--mono);font-size:10px;font-weight:600;
+  color:var(--ink-4);text-transform:uppercase;letter-spacing:.08em;
+}
+.force-impact-val{
+  font-size:13.5px;font-weight:600;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:6px;
+}
+.force-impact-icon{
+  width:16px;height:16px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   STATE BLOCKS · What's Working / Breaking
+═════════════════════════════════════════════════════════════════ */
+.state-block{
+  background:var(--w);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:24px;
+}
+.state-block.breaking{
+  background:linear-gradient(135deg,var(--w) 0%,var(--red-soft) 100%);
+  border-color:rgba(255,59,48,.18);
+}
+.state-block-hdr{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:18px;display:flex;align-items:center;gap:8px;
+}
+.state-block.working .state-block-hdr{color:var(--green);}
+.state-block.breaking .state-block-hdr{color:var(--red);}
+.state-block-icon{
+  display:inline-flex;width:18px;height:18px;border-radius:5px;
+  align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;
+}
+.state-block.working .state-block-icon{background:var(--green-soft);color:var(--green);}
+.state-block.breaking .state-block-icon{background:var(--red-soft);color:var(--red);}
+.state-list{display:flex;flex-direction:column;gap:10px;}
+.state-item{
+  display:flex;gap:10px;
+  padding:14px;border-radius:var(--r-sm);
+  background:var(--off);border:1px solid var(--line);
+}
+.state-block.breaking .state-item{background:var(--w);border-color:rgba(255,59,48,.12);}
+.state-item-mark{
+  flex-shrink:0;font-weight:700;font-size:13px;
+}
+.state-block.working .state-item-mark{color:var(--green);}
+.state-block.breaking .state-item-mark{color:var(--red);}
+.state-item-text{font-size:13.5px;color:var(--ink-2);line-height:1.55;}
+
+/* ════════════════════════════════════════════════════════════════
+   NARRATIVE FINALE
+═════════════════════════════════════════════════════════════════ */
+.narr{
+  background:linear-gradient(135deg,var(--ink-1) 0%,#0A0A0C 100%);
+  border-radius:var(--r-2xl);
+  padding:64px 56px;margin-top:48px;
+  position:relative;overflow:hidden;
+  color:#fff;
+}
+.narr::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 50% 40% at 80% 20%,rgba(100,169,247,.16),transparent 60%),
+    radial-gradient(ellipse 40% 30% at 20% 80%,rgba(175,82,222,.08),transparent 60%);
+  pointer-events:none;
+}
+.narr::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:linear-gradient(180deg,#000,transparent 70%);
+  -webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);
+}
+.narr-content{position:relative;z-index:2;}
+.narr-eye{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  color:rgba(255,255,255,.5);letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:24px;
+  display:inline-flex;align-items:center;gap:9px;
+}
+.narr-eye::before{
+  content:'';width:5px;height:5px;border-radius:50%;background:#64A9F7;
+}
+.narr-h{
+  font-size:clamp(36px,4.5vw,60px);
+  font-weight:700;letter-spacing:-.035em;line-height:1.05;
+  color:#fff;margin-bottom:30px;max-width:760px;
+}
+.narr-h em{
+  font-style:normal;
+  background:linear-gradient(135deg,#64A9F7 0%,#AF52DE 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.narr-body{
+  font-size:16px;color:rgba(255,255,255,.62);
+  line-height:1.85;max-width:680px;font-weight:300;
+}
+.narr-body strong{color:rgba(255,255,255,.95);font-weight:500;}
+.narr-signoff{
+  margin-top:40px;padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.signoff-block{display:flex;flex-direction:column;gap:3px;}
+.signoff-lbl{
+  font-family:var(--mono);font-size:10px;
+  color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase;
+}
+.signoff-val{
+  font-family:var(--mono);font-size:13px;
+  color:rgba(255,255,255,.75);font-weight:500;
+}
+.signoff-div{width:1px;height:32px;background:rgba(255,255,255,.08);}
+
+/* ════════════════════════════════════════════════════════════════
+   FOOTER
+═════════════════════════════════════════════════════════════════ */
+.footer{
+  background:var(--ink-1);color:rgba(255,255,255,.4);
+  padding:32px 0;margin-top:64px;
+}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+  max-width:var(--container);margin:0 auto;padding:0 var(--gutter);
+  font-family:var(--mono);font-size:11px;
+}
+.footer-meta{display:flex;align-items:center;gap:14px;}
+
+/* ════════════════════════════════════════════════════════════════
+   ANIMATIONS · Scroll reveals
+═════════════════════════════════════════════════════════════════ */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity var(--t-xslow) var(--ease),transform var(--t-xslow) var(--ease);
+}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+.stagger > *{
+  opacity:0;transform:translateY(20px);
+  transition:opacity .7s var(--ease),transform .7s var(--ease);
+}
+.stagger.in > *{opacity:1;transform:translateY(0);}
+.stagger.in > *:nth-child(1){transition-delay:.04s;}
+.stagger.in > *:nth-child(2){transition-delay:.12s;}
+.stagger.in > *:nth-child(3){transition-delay:.20s;}
+.stagger.in > *:nth-child(4){transition-delay:.28s;}
+.stagger.in > *:nth-child(5){transition-delay:.36s;}
+.stagger.in > *:nth-child(6){transition-delay:.44s;}
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVE
+═════════════════════════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .layout-with-rail{grid-template-columns:1fr;}
+  .rail{
+    position:relative;top:auto;max-height:none;
+    margin-bottom:var(--s-6);
+    background:var(--w);border:1px solid var(--line);
+    border-radius:var(--r-lg);padding:18px;
+  }
+  .rail-toc{display:none;}
+}
+@media(max-width:840px){
+  .hero{padding:100px var(--gutter) 60px;}
+  .hero-kpis{grid-template-columns:1fr;}
+  .kpi{padding:24px;}
+  .threat-row{grid-template-columns:90px 1fr 80px;gap:10px;}
+  .threat-row .threat-reason{display:none;}
+  .threat-axis{grid-template-columns:90px 1fr 80px;gap:10px;}
+  .threat-axis > *:nth-child(3){display:none;}
+  .grid{gap:var(--s-3);}
+  .col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9{grid-column:span 12;}
+  .brand-card-hdr{grid-template-columns:1fr;}
+  .brand-card-body{grid-template-columns:1fr;}
+  .matrix-callouts{grid-template-columns:1fr;}
+  .star-grid{grid-template-columns:1fr;}
+  .narr{padding:36px 24px;}
+  .threat-inner{padding:24px 20px;}
+  .matrix-wrap{padding:20px;}
+  .section{padding:var(--s-7) 0;}
+  .nav-search{display:none;}
+  .nav{padding:0 var(--s-3);}
+  .nav-brand-meta{display:none;}
+}
+
+/* High-contrast focus */
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:6px;}
+
+/* Selection */
+::selection{background:rgba(0,113,227,.2);color:var(--ink-1);}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════════
+     NAVIGATION
+═════════════════════════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-logo">
+      <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+        <circle cx="5.5" cy="5.5" r="3" fill="#fff"/>
+      </svg>
+    </div>
+    Sentinel
+    <span class="nav-brand-meta">Intelligence · v2.4</span>
+  </div>
+  <div class="nav-items">
+    <div class="nav-item active" data-target="hero">Overview</div>
+    <div class="nav-item" data-target="summary">Summary</div>
+    <div class="nav-item" data-target="threats">Threats</div>
+    <div class="nav-item" data-target="narrative">Strategy</div>
+    <div class="nav-item" data-target="evidence">Evidence</div>
+    <div class="nav-item" data-target="data">Data</div>
+  </div>
+  <div class="nav-actions">
+    <div class="live">
+      <span class="live-dot"></span>LIVE
+    </div>
+    <div class="nav-search">
+      <svg class="nav-search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="7" cy="7" r="5"/>
+        <path d="M11 11l3 3"/>
+      </svg>
+      Search insights
+      <span class="kbd">⌘K</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════════
+     HERO · The big insight
+═════════════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <div class="hero-chip">
+      <div class="hero-chip-mark">S</div>
+      Sentinel Intelligence
+      <div class="hero-chip-divider"></div>
+      <span class="hero-chip-meta">v2.4 · Updated Jun 17, 2025</span>
+    </div>
+    <div class="hero-eyebrow">Hisense · US TV Market · Competitive Intelligence Brief</div>
+    <h1 class="hero-h1">The US TV market is changing<br><span class="accent-grad">faster than Hisense advertising.</span></h1>
+    <p class="hero-sub"><strong>5 competitive threats. 4 strategic opportunities. 1 critical decision.</strong> An AI-synthesized executive brief for the Hisense US strategy team.</p>
+
+    <div class="hero-kpis">
+      <div class="kpi">
+        <div class="kpi-label">Failure Rate · 5YR <span class="kpi-trend up">+9pt vs Sony</span></div>
+        <div class="kpi-value red">20<span class="unit">%</span></div>
+        <div class="kpi-insight"><strong>Hisense 5-year</strong> failure rate (Consumer Reports)</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Top Creative Score <span class="kpi-trend up">↑17pt gap</span></div>
+        <div class="kpi-value blue">89</div>
+        <div class="kpi-insight"><strong>Samsung</strong> leads the category</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">US Tariff · Imports <span class="kpi-trend flat">Active</span></div>
+        <div class="kpi-value orange">145<span class="unit">%</span></div>
+        <div class="kpi-insight"><strong>Tariff</strong> on Chinese electronics imports</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-cue" onclick="goTo('summary')">
+    <div class="hero-cue-line"></div>
+    Begin briefing
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════
+     MAIN LAYOUT · Sticky rail + content
+═════════════════════════════════════════════════════════════════ -->
+<div class="layout-with-rail" style="margin-top:var(--s-9);">
+
+  <!-- ────── STICKY EXEC RAIL ────── -->
+  <aside class="rail">
+    <div class="rail-section">
+      <div class="rail-eyebrow">Executive Summary</div>
+      <div class="rail-tldr threat">
+        <div class="rail-tldr-label">Threat #01</div>
+        Samsung is redefining what TV advertising can do.
+      </div>
+      <div class="rail-tldr risk">
+        <div class="rail-tldr-label">Risk #02</div>
+        Hisense's core value proposition is weakening.
+      </div>
+      <div class="rail-tldr opp">
+        <div class="rail-tldr-label">Opportunity #03</div>
+        Reliability remains unclaimed territory.
+      </div>
+    </div>
+    <div class="rail-section">
+      <div class="rail-eyebrow">Sections</div>
+      <div class="rail-toc">
+        <div class="rail-toc-item active" data-target="summary"><span class="rail-toc-num">01</span>Executive Summary</div>
+        <div class="rail-toc-item" data-target="threats"><span class="rail-toc-num">02</span>Threat Overview</div>
+        <div class="rail-toc-item" data-target="narrative"><span class="rail-toc-num">03</span>Strategic Narrative</div>
+        <div class="rail-toc-item" data-target="evidence"><span class="rail-toc-num">04</span>Supporting Evidence</div>
+        <div class="rail-toc-item" data-target="data"><span class="rail-toc-num">05</span>Raw Data</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ────── CONTENT ────── -->
+  <main>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 01 · EXECUTIVE SUMMARY  (insight-first)
+  ═════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="summary" style="padding-top:0;">
+    <div class="section-header">
+      <div class="section-eye">
+        <span class="section-eye-line"></span>
+        <span class="t-eyebrow accent">01 · Executive Summary</span>
+      </div>
+      <h2 class="section-h">If you read only one page,<br><em>read this page.</em></h2>
+      <p class="section-sub">Three structural shifts redefined the competitive dynamic in 2025. Each creates either an existential pressure or a window of opportunity.</p>
+    </div>
+
+    <!-- The three insight cards -->
+    <div class="grid stagger" style="margin-bottom:var(--s-5);">
+      <div class="col-4">
+        <div class="surface" style="padding:28px;height:100%;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--red),#FF7F73);"></div>
+          <div class="row gap-2" style="margin-bottom:18px;">
+            <span class="pill pill-red"><span class="pill-dot"></span>Threat · #01</span>
+          </div>
+          <div class="t-display-sm" style="margin-bottom:14px;">Samsung is redefining what TV advertising can do.</div>
+          <div class="t-body-sm" style="padding-top:14px;border-top:1px solid var(--line);">Performance TV launched March 2026 with 26× engagement vs QR. The ad break became a shopping cart.</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="surface" style="padding:28px;height:100%;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),#FFC569);"></div>
+          <div class="row gap-2" style="margin-bottom:18px;">
+            <span class="pill pill-orange"><span class="pill-dot"></span>Risk · #02</span>
+          </div>
+          <div class="t-display-sm" style="margin-bottom:14px;">Hisense's core value proposition is actively weakening.</div>
+          <div class="t-body-sm" style="padding-top:14px;border-top:1px solid var(--line);">145% tariffs are closing the price gap with Samsung and LG (Mexico-manufactured). "Cheapest Chinese brand" has a shelf life.</div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="surface" style="padding:28px;height:100%;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),#5DD27E);"></div>
+          <div class="row gap-2" style="margin-bottom:18px;">
+            <span class="pill pill-green"><span class="pill-dot"></span>Opportunity · #03</span>
+          </div>
+          <div class="t-display-sm" style="margin-bottom:14px;">Reliability remains completely unclaimed territory.</div>
+          <div class="t-body-sm" style="padding-top:14px;border-top:1px solid var(--line);">Consumer Reports data is public. No competitor has responded. First-mover advantage window: 12–18 months.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI synthesis card -->
+    <div class="ai-card reveal">
+      <div class="ai-card-hdr">
+        <div class="ai-badge">
+          <div class="ai-badge-mark">AI</div>
+          Pattern detected by Sentinel
+        </div>
+        <div class="ai-confidence">
+          Confidence
+          <div class="ai-conf-meter">
+            <span class="f"></span><span class="f"></span><span class="f"></span><span class="f"></span><span></span>
+          </div>
+          High
+        </div>
+      </div>
+      <div class="ai-card-body">
+        <strong>Two competitors are accelerating, two are stable or declining.</strong> Samsung and TCL combined gained <strong>+20 threat points</strong> in the last 90 days while LG held flat and Sony declined. The competitive set is bifurcating into <strong>innovation-led offense</strong> (Samsung, TCL) and <strong>position-defense incumbents</strong> (LG, Sony). Hisense currently has no clear posture in either camp.
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 02 · COMPETITIVE THREAT OVERVIEW
+  ═════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="threats" style="padding-top:var(--s-7);">
+    <div class="section-header">
+      <div class="section-eye">
+        <span class="section-eye-line"></span>
+        <span class="t-eyebrow accent">02 · Threat Overview</span>
+      </div>
+      <h2 class="section-h">Who is most dangerous.</h2>
+      <p class="section-sub">Composite threat score from advertising investment, market momentum, and strategic positioning. Built for the five-second executive scan.</p>
+    </div>
+
+    <div class="threat-board reveal">
+      <div class="threat-spectrum"></div>
+      <div class="threat-inner">
+        <div class="threat-hdr">
+          <div>
+            <div class="threat-title">Threat Score Rankings</div>
+            <div class="threat-meta">
+              <span class="threat-meta-item"><span class="live-dot"></span>Live model output</span>
+              <span>·</span>
+              <span class="threat-meta-item">4 competitors tracked</span>
+              <span>·</span>
+              <span class="threat-meta-item">237 ad assets analyzed</span>
+            </div>
+          </div>
+          <div class="threat-status-stack">
+            <div class="threat-status-item"><span>Model</span><strong>Sentinel · v2.4</strong></div>
+            <div class="threat-status-item"><span>Updated</span><strong>Jun 17 · 14:32 UTC</strong></div>
+          </div>
+        </div>
+
+        <div class="threat-rows">
+          <div class="threat-row">
+            <div class="threat-brand">
+              <div class="threat-brand-mark" style="background:var(--samsung)">S</div>
+              Samsung
+            </div>
+            <div class="threat-track">
+              <div class="threat-fill" data-target="92" style="width:0;background:linear-gradient(90deg,#0a1f80,#1428A0);">92</div>
+            </div>
+            <div class="threat-reason"><strong>Interactive Commerce</strong>+ AI Ecosystem</div>
+            <div class="threat-score-cell">
+              <div class="threat-score-num" style="color:var(--samsung)">92</div>
+              <div class="threat-delta up">▲ +8</div>
+            </div>
+          </div>
+          <div class="threat-row">
+            <div class="threat-brand">
+              <div class="threat-brand-mark" style="background:var(--tcl)">T</div>
+              TCL
+            </div>
+            <div class="threat-track">
+              <div class="threat-fill" data-target="84" style="width:0;background:linear-gradient(90deg,#005a96,#007DC5);">84</div>
+            </div>
+            <div class="threat-reason"><strong>NFL Partner</strong>+ Fastest Growth</div>
+            <div class="threat-score-cell">
+              <div class="threat-score-num" style="color:var(--tcl)">84</div>
+              <div class="threat-delta up">▲ +12</div>
+            </div>
+          </div>
+          <div class="threat-row">
+            <div class="threat-brand">
+              <div class="threat-brand-mark" style="background:var(--lg)">L</div>
+              LG
+            </div>
+            <div class="threat-track">
+              <div class="threat-fill" data-target="71" style="width:0;background:linear-gradient(90deg,#7a0026,#A50034);">71</div>
+            </div>
+            <div class="threat-reason"><strong>OLED Leader</strong>+ Celebrity Sports</div>
+            <div class="threat-score-cell">
+              <div class="threat-score-num" style="color:var(--lg)">71</div>
+              <div class="threat-delta flat">— 0</div>
+            </div>
+          </div>
+          <div class="threat-row">
+            <div class="threat-brand">
+              <div class="threat-brand-mark" style="background:var(--sony)">Y</div>
+              Sony
+            </div>
+            <div class="threat-track">
+              <div class="threat-fill" data-target="48" style="width:0;background:linear-gradient(90deg,#111,#444);">48</div>
+            </div>
+            <div class="threat-reason"><strong>Premium Fortress</strong>+ Loyal Niche</div>
+            <div class="threat-score-cell">
+              <div class="threat-score-num" style="color:var(--ink-4)">48</div>
+              <div class="threat-delta down">▼ -3</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="threat-axis">
+          <div></div>
+          <div class="threat-axis-scale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+          <div></div><div></div>
+        </div>
+
+        <div class="threat-legend">
+          <div class="threat-legend-item"><div class="threat-legend-swatch" style="background:var(--red)"></div>90–100 · Critical</div>
+          <div class="threat-legend-item"><div class="threat-legend-swatch" style="background:var(--orange)"></div>70–89 · High</div>
+          <div class="threat-legend-item"><div class="threat-legend-swatch" style="background:var(--blue)"></div>50–69 · Medium</div>
+          <div class="threat-legend-item"><div class="threat-legend-swatch" style="background:var(--ink-6)"></div>0–49 · Low</div>
+          <div class="threat-legend-meta">CONFIDENCE 94% · σ ±2.3pt</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Three forces grid -->
+    <div class="grid stagger" style="margin-top:var(--s-6);">
+      <div class="col-4">
+        <div class="force-card" data-type="threat">
+          <div class="force-tag" style="background:var(--red-soft);color:var(--red)">
+            <span class="force-tag-dot"></span>Biggest Market Shift
+          </div>
+          <div class="force-icon">🏛</div>
+          <div class="force-title">US Tariffs</div>
+          <div class="force-desc">Up to 145% on Chinese imports. Samsung and LG manufacture in Mexico — structurally exempt. Hisense and TCL face 10–25% consumer price hikes.</div>
+          <div class="force-impact">
+            <div class="force-impact-lbl">Impact on Hisense</div>
+            <div class="force-impact-val" style="color:var(--red)">
+              <span class="force-impact-icon" style="background:rgba(255,59,48,.14);color:var(--red);">↓</span>
+              Price advantage eroding
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="force-card" data-type="trend">
+          <div class="force-tag" style="background:var(--blue-soft);color:var(--blue)">
+            <span class="force-tag-dot"></span>Fastest Growing Trend
+          </div>
+          <div class="force-icon">📺</div>
+          <div class="force-title">Interactive TV</div>
+          <div class="force-desc">Samsung's GameBreaks and ShoppingBreaks show 26× engagement vs QR. The TV is becoming a commerce platform. Amazon in-break checkout launched March 2026.</div>
+          <div class="force-impact">
+            <div class="force-impact-lbl">Impact on Hisense</div>
+            <div class="force-impact-val" style="color:var(--blue)">
+              <span class="force-impact-icon" style="background:rgba(0,113,227,.12);color:var(--blue);">!</span>
+              Missing the format shift
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="force-card" data-type="opp">
+          <div class="force-tag" style="background:var(--green-soft);color:var(--green)">
+            <span class="force-tag-dot"></span>Largest Consumer Concern
+          </div>
+          <div class="force-icon">🛡</div>
+          <div class="force-title">Reliability</div>
+          <div class="force-desc">Consumer Reports: Hisense 20% failure vs Sony 11%. Data is public, indexed on Reddit and Slickdeals, directly influencing purchase decisions at scale.</div>
+          <div class="force-impact">
+            <div class="force-impact-lbl">Impact on Hisense</div>
+            <div class="force-impact-val" style="color:var(--green)">
+              <span class="force-impact-icon" style="background:rgba(52,199,89,.14);color:var(--green);">★</span>
+              Biggest unclaimed opportunity
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 03 · STRATEGIC NARRATIVE
+  ═════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="narrative" style="padding-top:var(--s-7);">
+    <div class="section-header">
+      <div class="section-eye">
+        <span class="section-eye-line"></span>
+        <span class="t-eyebrow accent">03 · Strategic Narrative</span>
+      </div>
+      <h2 class="section-h">Where everyone stands<br><em>— and what to do next.</em></h2>
+      <p class="section-sub">Brand positioning matrix and AI-ranked strategic recommendations. The Hisense path forward, ordered by leverage and urgency.</p>
+    </div>
+
+    <!-- POSITIONING MATRIX -->
+    <div class="matrix-wrap reveal">
+      <div class="matrix-hdr">
+        <div class="matrix-title-block">
+          <div class="matrix-title">2025 Brand Position Matrix</div>
+          <div class="matrix-axes">X: Functional ↔ Lifestyle · Y: Value ↔ Premium</div>
+        </div>
+        <div class="matrix-controls">
+          <div class="matrix-control active" data-year="2025">2025</div>
+          <div class="matrix-control" data-year="2024">2024</div>
+          <div class="matrix-control" data-year="2023">2023</div>
+        </div>
+      </div>
+      <div id="matrix">
+        <div class="matrix-axis-h"></div>
+        <div class="matrix-axis-v"></div>
+        <div class="matrix-quad-lbl" style="top:14px;left:50%;transform:translateX(-50%);">Premium</div>
+        <div class="matrix-quad-lbl" style="bottom:14px;left:50%;transform:translateX(-50%);">Value</div>
+        <div class="matrix-quad-lbl" style="left:14px;top:50%;transform:translateY(-50%);">Functional</div>
+        <div class="matrix-quad-lbl" style="right:14px;top:50%;transform:translateY(-50%);">Lifestyle</div>
+
+        <div class="matrix-zone-white" style="right:6%;top:8%;width:120px;height:94px;"></div>
+        <div class="matrix-zone-lbl" style="right:6%;top:11%;color:rgba(0,113,227,.6);">▲ White Space</div>
+
+        <div class="matrix-zone-overlap" style="left:55%;top:62%;width:160px;height:128px;transform:translate(-50%,-50%);"></div>
+        <div class="matrix-zone-lbl" style="left:55%;top:84%;color:rgba(255,159,10,.6);transform:translateX(-50%);">⊕ Overlap Zone</div>
+
+        <div class="matrix-pin" style="left:65%;top:24%;color:var(--samsung);">
+          <div class="matrix-pin-dot" style="background:var(--samsung);"></div>
+          <div class="matrix-pin-lbl" style="color:var(--samsung)">Samsung</div>
+          <div class="matrix-card">
+            <div class="matrix-card-head" style="color:var(--samsung);">Samsung</div>
+            <div class="matrix-card-body">Premium + Ecosystem Lifestyle. Mexico manufacturing = tariff-exempt. Performance TV launch March 2026.</div>
+            <div class="matrix-card-meta"><span>Threat <strong style="color:var(--red);">92</strong></span><span>Δ <strong style="color:var(--red);">+8</strong></span></div>
+          </div>
+        </div>
+        <div class="matrix-pin" style="left:57%;top:13%;color:var(--lg);">
+          <div class="matrix-pin-dot" style="background:var(--lg);"></div>
+          <div class="matrix-pin-lbl" style="color:var(--lg)">LG</div>
+          <div class="matrix-card">
+            <div class="matrix-card-head" style="color:var(--lg);">LG</div>
+            <div class="matrix-card-body">Premium OLED + Sports Lifestyle. Travis Kelce campaign + Xbox Game Pass for gaming flank.</div>
+            <div class="matrix-card-meta"><span>Threat <strong style="color:var(--orange);">71</strong></span><span>Δ <strong>0</strong></span></div>
+          </div>
+        </div>
+        <div class="matrix-pin" style="left:33%;top:11%;color:var(--sony);">
+          <div class="matrix-pin-dot" style="background:var(--sony);"></div>
+          <div class="matrix-pin-lbl" style="color:var(--sony)">Sony</div>
+          <div class="matrix-card">
+            <div class="matrix-card-head">Sony</div>
+            <div class="matrix-card-body">Ultra-premium + Filmmaker Functional. Kando philosophy. Tariff-pressured but audience loyalty holds.</div>
+            <div class="matrix-card-meta"><span>Threat <strong>48</strong></span><span>Δ <strong style="color:var(--green);">−3</strong></span></div>
+          </div>
+        </div>
+        <div class="matrix-pin" style="left:55%;top:60%;color:var(--tcl);">
+          <div class="matrix-pin-dot" style="background:var(--tcl);"></div>
+          <div class="matrix-pin-lbl" style="color:var(--tcl)">TCL ↗</div>
+          <div class="matrix-card">
+            <div class="matrix-card-head" style="color:var(--tcl);">TCL</div>
+            <div class="matrix-card-body"><strong>Shifted RIGHT in 2025.</strong> NFL partnership moved TCL from pure functional/value toward lifestyle — now overlapping Hisense territory.</div>
+            <div class="matrix-card-meta"><span>Threat <strong style="color:var(--orange);">84</strong></span><span>Δ <strong style="color:var(--red);">+12</strong></span></div>
+          </div>
+        </div>
+        <div class="matrix-pin featured" style="left:72%;top:67%;color:var(--hisense);">
+          <div class="matrix-pin-dot" style="background:var(--hisense);"></div>
+          <div class="matrix-pin-lbl" style="color:var(--hisense);font-weight:700;">Hisense</div>
+          <div class="matrix-card">
+            <div class="matrix-card-head" style="color:var(--hisense);">Hisense · Target Brand</div>
+            <div class="matrix-card-body">Value + Sports Lifestyle. <strong>Now squeezed by TCL from the left.</strong> Core value story eroding with tariffs. Window to reposition: 12–18 months.</div>
+            <div class="matrix-card-meta"><span>Status <strong style="color:var(--red);">At Risk</strong></span><span>Window <strong style="color:var(--orange);">12–18mo</strong></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="matrix-callouts">
+        <div class="callout warn">
+          <div class="callout-head">⚠ Map Change vs Last Report</div>
+          <div class="callout-body">TCL shifted toward lifestyle/emotional after NFL partnership. Now directly overlapping Hisense's territory with stronger US sports credibility.</div>
+        </div>
+        <div class="callout opp">
+          <div class="callout-head">★ White Space Opportunity</div>
+          <div class="callout-body">Premium lifestyle at accessible prices — upper-right quadrant — remains unclaimed. No brand owns it from the value side.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI strategic insight -->
+    <div class="ai-card reveal" style="margin-top:var(--s-6);">
+      <div class="ai-card-hdr">
+        <div class="ai-badge">
+          <div class="ai-badge-mark">AI</div>
+          Strategic synthesis
+        </div>
+        <div class="ai-confidence">
+          Confidence
+          <div class="ai-conf-meter">
+            <span class="f"></span><span class="f"></span><span class="f"></span><span class="f"></span><span class="f"></span>
+          </div>
+          Very High
+        </div>
+      </div>
+      <div class="ai-card-body">
+        <strong>The strategic choice is which story to own, not which campaign to run.</strong> Samsung owns innovation. LG owns picture quality. TCL owns sports-value. Sony owns cinema. The only territory no one is defending is <strong>trust</strong>. Consumer Reports has handed Hisense the exact brief: make reliability the story, back it with data, and do it before anyone else does.
+      </div>
+    </div>
+
+    <!-- ────── STRATEGIC RECOMMENDATIONS (progressive disclosure) ────── -->
+    <div style="margin-top:var(--s-7);">
+      <div class="row-between" style="margin-bottom:var(--s-4);">
+        <div>
+          <div class="t-eyebrow" style="margin-bottom:6px;">Strategic Recommendation Panel</div>
+          <h3 class="t-display-md">What to do.</h3>
+        </div>
+        <div class="live">
+          <span class="live-dot"></span>4 actions · ranked by ROI
+        </div>
+      </div>
+
+      <div class="reco-panel">
+        <div class="reco-row priority" onclick="toggleReco(this)">
+          <div class="reco-rank">01</div>
+          <div class="reco-content">
+            <div class="reco-title">Commission the reliability study.</div>
+            <div class="reco-meta"><span class="pill pill-green"><span class="pill-dot"></span>Highest Priority</span> <strong>~$120k · 8w</strong> · ⚡ Start within 30 days</div>
+          </div>
+          <div class="reco-expand-btn">View detail <span class="chev">▾</span></div>
+        </div>
+        <div class="reco-expand">
+          <div class="reco-expand-body">Wakefield Research or equivalent. Publish findings as ad creative. Deploy to Reddit, YouTube Tech, and Best Buy review ecosystem simultaneously. Directly neutralizes the #1 purchase barrier with proof.</div>
+        </div>
+
+        <div class="reco-row fast" onclick="toggleReco(this)">
+          <div class="reco-rank">02</div>
+          <div class="reco-content">
+            <div class="reco-title">Build the FIFA retargeting layer.</div>
+            <div class="reco-meta"><span class="pill pill-blue"><span class="pill-dot"></span>Quick Win</span> <strong>~$40k · 2w</strong> · ⚡ Start within 14 days</div>
+          </div>
+          <div class="reco-expand-btn">View detail <span class="chev">▾</span></div>
+        </div>
+        <div class="reco-expand">
+          <div class="reco-expand-body">15-second units — product name, screen size, price, "Shop now" — targeting audiences who engaged with FIFA content. Deploy Meta + YouTube within 48 hours of each CWC match. Converts existing asset investment into conversion.</div>
+        </div>
+
+        <div class="reco-row" onclick="toggleReco(this)">
+          <div class="reco-rank">03</div>
+          <div class="reco-content">
+            <div class="reco-title">Shift retail media from 8% to 22%.</div>
+            <div class="reco-meta"><span class="pill pill-gray"><span class="pill-dot"></span>Structural</span> <strong>Budget shift · 90d</strong> · ↗ 90-day ramp</div>
+          </div>
+          <div class="reco-expand-btn">View detail <span class="chev">▾</span></div>
+        </div>
+        <div class="reco-expand">
+          <div class="reco-expand-body">Amazon Sponsored + A+ content refresh. Best Buy in-store digital. Walmart end-cap placement. This is where purchase decisions actually happen. TCL's retail dominance is the most addressable gap in the current media mix.</div>
+        </div>
+
+        <div class="reco-row" onclick="toggleReco(this)">
+          <div class="reco-rank">04</div>
+          <div class="reco-content">
+            <div class="reco-title">Announce the Google TV fix.</div>
+            <div class="reco-meta"><span class="pill pill-gray"><span class="pill-dot"></span>Defensive</span> <strong>Engineering · 60d</strong> · ↗ 60-day execution</div>
+          </div>
+          <div class="reco-expand-btn">View detail <span class="chev">▾</span></div>
+        </div>
+        <div class="reco-expand">
+          <div class="reco-expand-body">Publish a firmware improvement roadmap. Offer OS choice (Fire TV / Roku) on select models. Forum users are making purchase decisions based on OS complaints. Silence is complicity. This is fixable and fast.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Opportunities -->
+    <div style="margin-top:var(--s-7);">
+      <div class="row-between" style="margin-bottom:var(--s-4);flex-wrap:wrap;gap:12px;">
+        <div>
+          <div class="t-eyebrow" style="margin-bottom:6px;">Opportunity Detection</div>
+          <h3 class="t-display-md">Where to go next.</h3>
+        </div>
+        <div class="live">
+          <span class="live-dot"></span>6 zones · scored 0–100
+        </div>
+      </div>
+
+      <div class="grid stagger">
+        <div class="col-4">
+          <div class="opp-card" style="--accent:var(--green);">
+            <div class="opp-card-top">
+              <div class="opp-score">91</div>
+              <span class="pill pill-green">New High ↑</span>
+            </div>
+            <div class="opp-title">Own Reliability. Nobody else will.</div>
+            <div class="opp-text">Consumer Reports data is public. No competitor has responded. The first brand to run a proactive reliability campaign in mid-market TV wins purchase confidence at scale.</div>
+            <div class="opp-footer"><span>RANK #1</span><span>CONFIDENCE 94%</span></div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="opp-card" style="--accent:var(--orange);">
+            <div class="opp-card-top">
+              <div class="opp-score">85</div>
+              <span class="pill pill-orange">New Signal</span>
+            </div>
+            <div class="opp-title">Reframe tariffs as a Hisense advantage.</div>
+            <div class="opp-text">When all prices rise, the brand with the best size-per-dollar wins. "Their 65" budget gets you our 100"" is a tariff-era narrative competitors can't answer.</div>
+            <div class="opp-footer"><span>RANK #2</span><span>CONFIDENCE 89%</span></div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="opp-card" style="--accent:var(--blue);">
+            <div class="opp-card-top">
+              <div class="opp-score">76</div>
+              <span class="pill pill-blue">Quick Win</span>
+            </div>
+            <div class="opp-title">Close the FIFA awareness-to-purchase gap.</div>
+            <div class="opp-text">70M impressions, zero conversion layer. Build 15s retargeting units with product, price, and CTA. Deploy within 48 hours of each CWC match broadcast.</div>
+            <div class="opp-footer"><span>RANK #3</span><span>CONFIDENCE 91%</span></div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="opp-card" style="--accent:var(--purple);">
+            <div class="opp-card-top">
+              <div class="opp-score">74</div>
+              <span class="pill pill-purple">Audience Gap</span>
+            </div>
+            <div class="opp-title">Build the US Hispanic campaign natively.</div>
+            <div class="opp-text">FIFA CWC 2025 is on US soil. No TV brand has built a Spanish-language-first campaign for this audience. Not translated — native.</div>
+            <div class="opp-footer"><span>RANK #4</span><span>CONFIDENCE 82%</span></div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="opp-card" style="--accent:var(--red);">
+            <div class="opp-card-top">
+              <div class="opp-score">67</div>
+              <span class="pill pill-red">Structural</span>
+            </div>
+            <div class="opp-title">Quadruple retail media investment.</div>
+            <div class="opp-text">Hisense at 8% retail media vs TCL at 30%. Walmart is 37% of US TV sales. Amazon PDPs are where the decision happens. Fastest conversion ROI available.</div>
+            <div class="opp-footer"><span>RANK #5</span><span>CONFIDENCE 88%</span></div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="opp-card" style="--accent:var(--ink-5);">
+            <div class="opp-card-top">
+              <div class="opp-score" style="color:var(--ink-5);">58</div>
+              <span class="pill pill-gray">Defensive</span>
+            </div>
+            <div class="opp-title">Turn the Google TV crisis into a story.</div>
+            <div class="opp-text">OS crash complaints are documented and spreading. A proactive firmware announcement converts a compounding negative into a PR positive before it compounds further.</div>
+            <div class="opp-footer"><span>RANK #6</span><span>CONFIDENCE 78%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hisense self-assessment -->
+    <div style="margin-top:var(--s-7);">
+      <div class="t-eyebrow" style="margin-bottom:8px;">Target Brand Self-Assessment</div>
+      <h3 class="t-display-md" style="margin-bottom:24px;">Hisense.</h3>
+
+      <div class="grid stagger">
+        <div class="col-6">
+          <div class="state-block working">
+            <div class="state-block-hdr">
+              <span class="state-block-icon">✓</span>
+              What's Working
+            </div>
+            <div class="state-list">
+              <div class="state-item"><span class="state-item-mark">+</span><span class="state-item-text">FIFA CWC "Own the Moment" — 70M+ MEA impressions. Strong sports IP globally.</span></div>
+              <div class="state-item"><span class="state-item-mark">+</span><span class="state-item-text">Omdia #1 in 100"+ globally. Size leadership is a genuine and communicable differentiator.</span></div>
+              <div class="state-item"><span class="state-item-mark">+</span><span class="state-item-text">#2 global TV brand by shipments. Scale and cost position are real structural advantages.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="state-block breaking">
+            <div class="state-block-hdr">
+              <span class="state-block-icon">✕</span>
+              What's Breaking
+            </div>
+            <div class="state-list">
+              <div class="state-item"><span class="state-item-mark">−</span><span class="state-item-text">20% 5-year failure rate (Consumer Reports, confirmed). No advertising response to circulating data.</span></div>
+              <div class="state-item"><span class="state-item-mark">−</span><span class="state-item-text">Conversion score 9/20 — lowest in competitive set. FIFA OOH has no CTA layer at all.</span></div>
+              <div class="state-item"><span class="state-item-mark">−</span><span class="state-item-text">Google TV OS crashes documented at scale. OS instability becomes post-purchase regret.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 04 · SUPPORTING EVIDENCE  (brand cards)
+  ═════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="evidence" style="padding-top:var(--s-7);">
+    <div class="section-header">
+      <div class="section-eye">
+        <span class="section-eye-line"></span>
+        <span class="t-eyebrow accent">04 · Supporting Evidence</span>
+      </div>
+      <h2 class="section-h">The four competitors,<br><em>in detail.</em></h2>
+      <p class="section-sub">Threat score derivation, key tactical moves, messaging evolution, and creative breakdowns. Expand any card to see how each ad scored on the four core dimensions.</p>
+    </div>
+
+    <div class="stack gap-5">
+
+      <!-- Samsung -->
+      <div class="brand-card reveal" style="--brand:var(--samsung);">
+        <div class="brand-card-hdr">
+          <div>
+            <span class="brand-tag" style="background:rgba(20,40,160,.08);color:var(--samsung);">
+              <span class="brand-tag-dot"></span>Samsung · Threat #01
+            </span>
+            <div class="brand-headline">Samsung turned the ad break into a shopping cart.</div>
+            <div class="brand-context">Performance TV launched March 2026 — interactive CTV with Amazon in-break checkout. The screen is now a commerce surface, not a display surface. 26× engagement vs QR codes.</div>
+          </div>
+          <div class="brand-ring">
+            <svg viewBox="0 0 100 100">
+              <circle class="brand-ring-bg" cx="50" cy="50" r="42"/>
+              <circle class="brand-ring-fill" cx="50" cy="50" r="42" data-score="92" style="stroke:var(--red);"/>
+            </svg>
+            <div class="brand-ring-num" style="color:var(--red);">92</div>
+            <div class="brand-ring-lbl">Threat Score</div>
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <div class="brand-fact"><div class="brand-fact-lbl">What Changed</div><div class="brand-fact-val">Performance TV launch — ShoppingBreaks, GameBreaks, Amazon in-break checkout.</div></div>
+          <div class="brand-fact"><div class="brand-fact-lbl">Why It Matters</div><div class="brand-fact-val">26× engagement vs QR. Samsung ads convert inside the TV experience.</div></div>
+          <div class="brand-fact"><div class="brand-fact-lbl">Implication for Hisense</div><div class="brand-fact-val">Hisense remains awareness-heavy. No interactive conversion layer exists.</div></div>
+        </div>
+        <div class="brand-timeline">
+          <div class="timeline-hdr">
+            <div class="timeline-lbl">Messaging Evolution · 2022–2026</div>
+            <div class="timeline-meta">4 inflection points</div>
+          </div>
+          <div class="timeline-wrap"><div class="timeline">
+            <div class="timeline-col"><div class="timeline-year">2022</div><div class="timeline-bubble">"Biggest & Best TV"</div></div>
+            <div class="timeline-col"><div class="timeline-year">2023</div><div class="timeline-bubble">"AI Smart TV"</div></div>
+            <div class="timeline-col"><div class="timeline-year">2024</div><div class="timeline-bubble">"AI Ecosystem"</div></div>
+            <div class="timeline-col current"><div class="timeline-year">2025–26</div><div class="timeline-bubble current">Interactive Commerce</div></div>
+          </div></div>
+        </div>
+        <div class="brand-card-footer">
+          <button class="btn btn-ghost" onclick="toggleCreative(this)">Show creative analysis <span class="chev">▾</span></button>
+          <div class="brand-card-meta"><span class="live-dot"></span>14 ads scored · last 90d</div>
+        </div>
+        <div class="brand-creative">
+          <div class="brand-creative-inner">
+            <div class="brand-creative-lbl">Why this ad works · Performance TV</div>
+            <div class="star-grid">
+              <div class="star-item"><div class="star-lbl">Visual Hook</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span></div><span class="star-num">5.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Emotional Trigger</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="e">★</span></div><span class="star-num">4.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Brand Recall</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span></div><span class="star-num">5.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Conversion Potential</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span></div><span class="star-num">5.0</span></div></div>
+            </div>
+            <div class="brand-creative-note">The Interactive CTV format closes the loop between awareness and purchase <strong>without the viewer leaving the screen</strong>. 26× engagement vs QR codes is the proof point that makes this format category-defining, not incremental.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TCL -->
+      <div class="brand-card reveal" style="--brand:var(--tcl);">
+        <div class="brand-card-hdr">
+          <div>
+            <span class="brand-tag" style="background:rgba(0,125,197,.1);color:var(--tcl);">
+              <span class="brand-tag-dot"></span>TCL · Threat #02
+            </span>
+            <div class="brand-headline">TCL is now the Official TV of the NFL. That matters.</div>
+            <div class="brand-context">Super Bowl LIX activation, 98" sweepstakes, NFL perimeter branding. TCL moved from pure value to sports-lifestyle — directly overlapping Hisense's positioning. +12.5% H1 shipment growth.</div>
+          </div>
+          <div class="brand-ring">
+            <svg viewBox="0 0 100 100">
+              <circle class="brand-ring-bg" cx="50" cy="50" r="42"/>
+              <circle class="brand-ring-fill" cx="50" cy="50" r="42" data-score="84" style="stroke:var(--orange);"/>
+            </svg>
+            <div class="brand-ring-num" style="color:var(--orange);">84</div>
+            <div class="brand-ring-lbl">Threat Score</div>
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <div class="brand-fact"><div class="brand-fact-lbl">What Changed</div><div class="brand-fact-val">Official NFL TV Partner + Super Bowl LIX sweepstakes activation with strong CTA.</div></div>
+          <div class="brand-fact"><div class="brand-fact-lbl">Why It Matters</div><div class="brand-fact-val">Official credentials convert to trust faster than sponsorship logos. And TCL is growing fastest.</div></div>
+          <div class="brand-fact"><div class="brand-fact-lbl">Implication for Hisense</div><div class="brand-fact-val">TCL now occupies sports-lifestyle AND value simultaneously. Hisense is squeezed.</div></div>
+        </div>
+        <div class="brand-card-footer">
+          <button class="btn btn-ghost" onclick="toggleCreative(this)">Show creative analysis <span class="chev">▾</span></button>
+          <div class="brand-card-meta"><span class="live-dot"></span>11 ads scored · last 90d</div>
+        </div>
+        <div class="brand-creative">
+          <div class="brand-creative-inner">
+            <div class="brand-creative-lbl">Why this ad works · NFL Official Partner Campaign</div>
+            <div class="star-grid">
+              <div class="star-item"><div class="star-lbl">Visual Hook</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="e">★</span></div><span class="star-num">4.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Emotional Trigger</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="e">★</span></div><span class="star-num">4.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Brand Recall</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span></div><span class="star-num">5.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Conversion Potential</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span></div><span class="star-num">5.0</span></div></div>
+            </div>
+            <div class="brand-creative-note">Official partnerships <strong>close the loop that sponsorships can't</strong>: "The NFL chose TCL" implies quality by association. The 98" sweepstakes is a masterclass in conversion — it turns awareness into registration, building a warm audience to retarget.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LG -->
+      <div class="brand-card reveal" style="--brand:var(--lg);">
+        <div class="brand-card-hdr">
+          <div>
+            <span class="brand-tag" style="background:rgba(165,0,52,.08);color:var(--lg);">
+              <span class="brand-tag-dot"></span>LG · Threat #03
+            </span>
+            <div class="brand-headline">LG weaponized the world's most famous tight end for OLED.</div>
+            <div class="brand-context">"Only on OLED" with Travis Kelce became a multi-season sports lifestyle campaign. Now adding Xbox Game Pass integration to defend the gaming flank. Six CES Innovation Awards 2025.</div>
+          </div>
+          <div class="brand-ring">
+            <svg viewBox="0 0 100 100">
+              <circle class="brand-ring-bg" cx="50" cy="50" r="42"/>
+              <circle class="brand-ring-fill" cx="50" cy="50" r="42" data-score="71" style="stroke:var(--orange);"/>
+            </svg>
+            <div class="brand-ring-num" style="color:var(--orange);">71</div>
+            <div class="brand-ring-lbl">Threat Score</div>
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <div class="brand-fact"><div class="brand-fact-lbl">What Changed</div><div class="brand-fact-val">Xbox Game Pass + Microsoft Copilot — expanding to gaming audience.</div></div>
+          <div class="brand-fact"><div class="brand-fact-lbl">Why It Matters</div><div class="brand-fact-val">Premium + sports + gaming = three audience segments defended simultaneously.</div></div>
+          <div class="brand-fact"><div class="brand-fact-lbl">Implication for Hisense</div><div class="brand-fact-val">LG's sports play (NFL via Kelce) carries more US cultural weight than Hisense's FIFA.</div></div>
+        </div>
+        <div class="brand-card-footer">
+          <button class="btn btn-ghost" onclick="toggleCreative(this)">Show creative analysis <span class="chev">▾</span></button>
+          <div class="brand-card-meta"><span class="live-dot"></span>9 ads scored · last 90d</div>
+        </div>
+        <div class="brand-creative">
+          <div class="brand-creative-inner">
+            <div class="brand-creative-lbl">Why this ad works · Travis Kelce "Only on OLED"</div>
+            <div class="star-grid">
+              <div class="star-item"><div class="star-lbl">Visual Hook</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="e">★</span></div><span class="star-num">4.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Emotional Trigger</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span></div><span class="star-num">5.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Brand Recall</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span></div><span class="star-num">5.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Conversion Potential</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="e">★</span></div><span class="star-num">4.0</span></div></div>
+            </div>
+            <div class="brand-creative-note">Kelce's <strong>genuine reaction shot</strong> — not a performance — is the authentic celebrity format at its best. Paired with TheScore and GQ media buys, it reached sports fans in sports context, not just in TV buying context.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sony -->
+      <div class="brand-card reveal" style="--brand:var(--sony);">
+        <div class="brand-card-hdr">
+          <div>
+            <span class="brand-tag" style="background:rgba(35,31,32,.08);color:var(--ink-2);">
+              <span class="brand-tag-dot"></span>Sony · Threat #04
+            </span>
+            <div class="brand-headline">Sony's 55-year brand story makes price hikes survivable.</div>
+            <div class="brand-context">Kando philosophy + filmmaker positioning creates loyalty that doesn't break on price. Sony's audience is smaller but stays. The lesson for Hisense: it's not the product — it's the story.</div>
+          </div>
+          <div class="brand-ring">
+            <svg viewBox="0 0 100 100">
+              <circle class="brand-ring-bg" cx="50" cy="50" r="42"/>
+              <circle class="brand-ring-fill" cx="50" cy="50" r="42" data-score="48" style="stroke:var(--ink-4);"/>
+            </svg>
+            <div class="brand-ring-num" style="color:var(--ink-4);">48</div>
+            <div class="brand-ring-lbl">Threat Score</div>
+          </div>
+        </div>
+        <div class="brand-card-body">
+          <div class="brand-fact"><div class="brand-fact-lbl">What Changed</div><div class="brand-fact-val">Bravia 8 II QD-OLED — 50% brighter. Studio Calibrated modes for Netflix, Prime, Apple TV+.</div></div>
+          <div class="brand-fact"><div class="brand-fact-lbl">Why It Matters</div><div class="brand-fact-val">Tariffs are raising Sony prices, yet their audience isn't defecting. That's brand equity working.</div></div>
+          <div class="brand-fact"><div class="brand-fact-lbl">Implication for Hisense</div><div class="brand-fact-val">Hisense needs a brand story that holds a price through headwinds. Sony proved it's possible.</div></div>
+        </div>
+        <div class="brand-card-footer">
+          <button class="btn btn-ghost" onclick="toggleCreative(this)">Show creative analysis <span class="chev">▾</span></button>
+          <div class="brand-card-meta"><span class="live-dot"></span>6 ads scored · last 90d</div>
+        </div>
+        <div class="brand-creative">
+          <div class="brand-creative-inner">
+            <div class="brand-creative-lbl">Why this ad works · Bravia "Authentic Cinematic Experience"</div>
+            <div class="star-grid">
+              <div class="star-item"><div class="star-lbl">Visual Hook</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="e">★</span><span class="e">★</span></div><span class="star-num">3.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Emotional Trigger</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span></div><span class="star-num">5.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Brand Recall</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="e">★</span></div><span class="star-num">4.0</span></div></div>
+              <div class="star-item"><div class="star-lbl">Conversion Potential</div><div class="star-meter"><div class="stars"><span class="f">★</span><span class="f">★</span><span class="f">★</span><span class="e">★</span><span class="e">★</span></div><span class="star-num">3.0</span></div></div>
+            </div>
+            <div class="brand-creative-note"><strong>Low conversion score is by design</strong> — Sony doesn't rush the close. Emotional residue from a Kando-informed ad compounds over time. The risk: this only works if you have decades of brand equity to borrow against.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       SECTION 05 · RAW DATA  (collapsed by default)
+  ═════════════════════════════════════════════════════════════════ -->
+  <section class="section" id="data" style="padding-top:var(--s-7);">
+    <div class="section-header">
+      <div class="section-eye">
+        <span class="section-eye-line"></span>
+        <span class="t-eyebrow accent">05 · Raw Data</span>
+      </div>
+      <h2 class="section-h">What consumers<br><em>actually believe.</em></h2>
+      <p class="section-sub">Signal confidence levels show how reliable each data point is and where it comes from. Click any row to expand sources.</p>
+    </div>
+
+    <div class="intel-card reveal">
+      <div class="intel-toolbar">
+        <div class="intel-meta">
+          <span class="live"><span class="live-dot"></span><strong style="color:var(--ink-1);">5 findings</strong> tracked</span>
+          <span class="intel-meta-divider">·</span>
+          <span>Signals from <strong>14 sources</strong></span>
+          <span class="intel-meta-divider">·</span>
+          <span>Avg confidence <strong>88%</strong></span>
+        </div>
+        <div class="intel-filters">
+          <div class="intel-filter active" data-filter="all">All</div>
+          <div class="intel-filter" data-filter="critical">Critical</div>
+          <div class="intel-filter" data-filter="high">High</div>
+          <div class="intel-filter" data-filter="confirmed">Confirmed</div>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="intel-table">
+          <thead>
+            <tr><th>Finding</th><th>Strength</th><th>Source Confidence</th><th></th></tr>
+          </thead>
+          <tbody id="intelBody">
+            <tr class="row" data-strength="critical" onclick="toggleEv(this)">
+              <td class="intel-finding">Hisense 5-year failure rate = 20% (Sony = 11%)</td>
+              <td><span class="pill pill-red"><span class="pill-dot"></span>Critical</span></td>
+              <td><div class="conf-meter"><div class="conf-bar"><div class="conf-fill" data-target="95"></div></div><div class="conf-pct">95%</div></div></td>
+              <td><button class="btn"><span>View sources</span> <span class="chev">▾</span></button></td>
+            </tr>
+            <tr class="intel-evidence">
+              <td colspan="4"><div class="intel-evidence-inner">Consumer Reports member survey — 97,554 TVs, 2010–2018 cohort. Peer-reviewed methodology. Published rating: "Fair." <span style="font-family:var(--mono);font-size:11px;color:var(--ink-4);">consumerreports.org</span></div></td>
+            </tr>
+
+            <tr class="row" data-strength="high" onclick="toggleEv(this)">
+              <td class="intel-finding">Google TV OS crashes — widespread user complaints</td>
+              <td><span class="pill pill-orange"><span class="pill-dot"></span>High</span></td>
+              <td><div class="conf-meter"><div class="conf-bar"><div class="conf-fill" data-target="72"></div></div><div class="conf-pct">72%</div></div></td>
+              <td><button class="btn"><span>View sources</span> <span class="chev">▾</span></button></td>
+            </tr>
+            <tr class="intel-evidence">
+              <td colspan="4"><div class="intel-evidence-inner">Slickdeals (Nov 2025): "I've started using a Roku instead of the TV's OS." Reddit r/Hisense: multiple threads on U7N/U8 crash patterns. Amazon reviews: 1-star cluster citing OS failures.</div></td>
+            </tr>
+
+            <tr class="row" data-strength="confirmed" onclick="toggleEv(this)">
+              <td class="intel-finding">Samsung interactive CTV drives 26× engagement vs QR</td>
+              <td><span class="pill pill-blue"><span class="pill-dot"></span>Confirmed</span></td>
+              <td><div class="conf-meter"><div class="conf-bar"><div class="conf-fill" data-target="95"></div></div><div class="conf-pct">95%</div></div></td>
+              <td><button class="btn"><span>View sources</span> <span class="chev">▾</span></button></td>
+            </tr>
+            <tr class="intel-evidence">
+              <td colspan="4"><div class="intel-evidence-inner">Samsung Newsroom US (March 2026): "Performance TV" launch press release. Samsung Ads NewFronts 2025 confirming 26× from Jonas Brothers FanVote. Primary source, highest confidence.</div></td>
+            </tr>
+
+            <tr class="row" data-strength="confirmed" onclick="toggleEv(this)">
+              <td class="intel-finding">TCL +12.5% H1 2025 shipment growth</td>
+              <td><span class="pill pill-green"><span class="pill-dot"></span>Confirmed</span></td>
+              <td><div class="conf-meter"><div class="conf-bar"><div class="conf-fill" data-target="88"></div></div><div class="conf-pct">88%</div></div></td>
+              <td><button class="btn"><span>View sources</span> <span class="chev">▾</span></button></td>
+            </tr>
+            <tr class="intel-evidence">
+              <td colspan="4"><div class="intel-evidence-inner">TrendForce H1 2025 TV Shipment Report (August 2025). Published dataset. TCL +12.5% YoY, Hisense +7.3%. Global top-5 combined share: 65.6%.</div></td>
+            </tr>
+
+            <tr class="row" data-strength="critical" onclick="toggleEv(this)">
+              <td class="intel-finding">Tariffs raising consumer TV prices 10–25%</td>
+              <td><span class="pill pill-red"><span class="pill-dot"></span>Critical</span></td>
+              <td><div class="conf-meter"><div class="conf-bar"><div class="conf-fill" data-target="90"></div></div><div class="conf-pct">90%</div></div></td>
+              <td><button class="btn"><span>View sources</span> <span class="chev">▾</span></button></td>
+            </tr>
+            <tr class="intel-evidence">
+              <td colspan="4"><div class="intel-evidence-inner">TrendForce April 2025. Omdia April 2025 advisory (Samsung/LG Mexico advantage confirmed). MarketResearchForecast: 10–25% consumer price increase estimate. Multiple independent sources converging.</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ai-card reveal" style="margin-top:var(--s-5);">
+      <div class="ai-card-hdr">
+        <div class="ai-badge">
+          <div class="ai-badge-mark">AI</div>
+          Cross-signal synthesis
+        </div>
+        <div class="ai-confidence">
+          Confidence
+          <div class="ai-conf-meter"><span class="f"></span><span class="f"></span><span class="f"></span><span class="f"></span><span class="f"></span></div>
+          Very High
+        </div>
+      </div>
+      <div class="ai-card-body">
+        <strong>Three of five findings are categorized Critical, all sourced from primary-grade evidence.</strong> The aggregate signal points to a single strategic theme: <strong>trust is the variable in motion</strong>. Reliability data is hardening, OS complaints are spreading, and the price advantage that previously masked these signals is closing. Sentinel recommends prioritizing Finding #1 in narrative response.
+      </div>
+    </div>
+
+    <!-- ────── NARRATIVE FINALE ────── -->
+    <div class="narr reveal">
+      <div class="narr-content">
+        <div class="narr-eye">2025 Brand Narrative Direction</div>
+        <h3 class="narr-h">Built to last.<br><em>Built to impress.</em></h3>
+        <p class="narr-body">The strategic choice is not about which campaign to run. It's about <strong>which story to own</strong>. Samsung owns innovation. LG owns picture quality. TCL owns sports-value. Sony owns cinema.<br><br>The only territory no one is defending is trust — the confidence that the TV you buy will still work in year four and five. Consumer Reports has handed Hisense the exact brief: <strong>make reliability the story, back it with data, and do it before anyone else does.</strong> The window is 12–18 months. The message is simple. <strong>Built to last. Built to impress.</strong></p>
+        <div class="narr-signoff">
+          <div class="signoff-block">
+            <div class="signoff-lbl">Generated by</div>
+            <div class="signoff-val">Sentinel v2.4</div>
+          </div>
+          <div class="signoff-div"></div>
+          <div class="signoff-block">
+            <div class="signoff-lbl">Model confidence</div>
+            <div class="signoff-val">94% · σ ±2.3pt</div>
+          </div>
+          <div class="signoff-div"></div>
+          <div class="signoff-block">
+            <div class="signoff-lbl">Last sync</div>
+            <div class="signoff-val">Jun 17 · 14:32 UTC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  </main>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FOOTER
+═════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>Hisense · Competitive Intelligence Brief · US TV Market · 2025</div>
+    <div class="footer-meta">
+      <span>Data through Jun 2026</span>
+      <span>·</span>
+      <span>Modeled scores noted</span>
+      <span>·</span>
+      <span class="live"><span class="live-dot"></span>Sentinel v2.4</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ═════════════════════════════════════════════════════════════════
+//   NAVIGATION & SCROLL TRACKING
+// ═════════════════════════════════════════════════════════════════
+const sectionIds = ['hero','summary','threats','narrative','evidence','data'];
+const navItems = document.querySelectorAll('.nav-item');
+const railItems = document.querySelectorAll('.rail-toc-item');
+
+sectionIds.forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navItems.forEach(n => n.classList.toggle('active', n.dataset.target === id));
+        railItems.forEach(r => r.classList.toggle('active', r.dataset.target === id));
+      }
+    });
+  }, {threshold: 0.25}).observe(el);
+});
+
+function goTo(id) {
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth', block:'start'});
+}
+navItems.forEach(item => item.addEventListener('click', () => goTo(item.dataset.target)));
+railItems.forEach(item => item.addEventListener('click', () => goTo(item.dataset.target)));
+
+// ═════════════════════════════════════════════════════════════════
+//   SCROLL REVEAL
+// ═════════════════════════════════════════════════════════════════
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+}, {threshold: 0.12, rootMargin: '0px 0px -8% 0px'});
+
+document.querySelectorAll('.reveal, .stagger').forEach(el => revealObs.observe(el));
+
+// ═════════════════════════════════════════════════════════════════
+//   NUMBER COUNT-UP (re-usable)
+// ═════════════════════════════════════════════════════════════════
+function countUp(el, target, duration = 1400) {
+  const start = performance.now();
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(target * eased);
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(step);
+}
+
+// Hero KPI animation
+const heroKpis = document.querySelectorAll('.hero .kpi-value');
+let heroAnimated = false;
+new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !heroAnimated) {
+      heroAnimated = true;
+      heroKpis.forEach((v, i) => {
+        const html = v.innerHTML;
+        const match = html.match(/^(\d+)/);
+        if (!match) return;
+        const num = parseInt(match[1]);
+        const rest = html.slice(match[1].length);
+        setTimeout(() => {
+          const start = performance.now();
+          function step(now) {
+            const p = Math.min((now - start) / 1400, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            v.innerHTML = Math.round(num * eased) + rest;
+            if (p < 1) requestAnimationFrame(step);
+            else v.innerHTML = num + rest;
+          }
+          requestAnimationFrame(step);
+        }, 700 + i * 120);
+      });
+    }
+  });
+}, {threshold: 0.4}).observe(document.querySelector('.hero'));
+
+// ═════════════════════════════════════════════════════════════════
+//   THREAT BARS ANIMATE
+// ═════════════════════════════════════════════════════════════════
+new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const fills = e.target.querySelectorAll('.threat-fill');
+      fills.forEach((f, i) => {
+        setTimeout(() => { f.style.width = f.dataset.target + '%'; }, i * 130);
+      });
+      const scores = e.target.querySelectorAll('.threat-score-num');
+      scores.forEach((s, i) => {
+        const tgt = parseInt(s.textContent);
+        setTimeout(() => countUp(s, tgt, 1400), i * 130);
+      });
+    }
+  });
+}, {threshold: 0.2}).observe(document.querySelector('.threat-board'));
+
+// ═════════════════════════════════════════════════════════════════
+//   BRAND RING ANIMATE
+// ═════════════════════════════════════════════════════════════════
+document.querySelectorAll('.brand-ring').forEach(ring => {
+  new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !ring.dataset.done) {
+        ring.dataset.done = '1';
+        const fill = ring.querySelector('.brand-ring-fill');
+        const num = ring.querySelector('.brand-ring-num');
+        const score = parseInt(fill.dataset.score);
+        const offset = 264 - (264 * score / 100);
+        setTimeout(() => { fill.style.strokeDashoffset = offset; }, 100);
+        countUp(num, score, 1500);
+      }
+    });
+  }, {threshold: 0.4}).observe(ring);
+});
+
+// ═════════════════════════════════════════════════════════════════
+//   CONFIDENCE BARS ANIMATE
+// ═════════════════════════════════════════════════════════════════
+new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.conf-fill').forEach((f, i) => {
+        setTimeout(() => { f.style.width = f.dataset.target + '%'; }, i * 90);
+      });
+    }
+  });
+}, {threshold: 0.2}).observe(document.querySelector('.intel-card'));
+
+// ═════════════════════════════════════════════════════════════════
+//   OPPORTUNITY SCORES ANIMATE
+// ═════════════════════════════════════════════════════════════════
+document.querySelectorAll('.opp-score').forEach(s => {
+  new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !s.dataset.done) {
+        s.dataset.done = '1';
+        countUp(s, parseInt(s.textContent), 1200);
+      }
+    });
+  }, {threshold: 0.5}).observe(s);
+});
+
+// ═════════════════════════════════════════════════════════════════
+//   PROGRESSIVE DISCLOSURE
+// ═════════════════════════════════════════════════════════════════
+function toggleCreative(btn) {
+  const card = btn.closest('.brand-card');
+  const creative = card.querySelector('.brand-creative');
+  const open = creative.classList.toggle('open');
+  btn.classList.toggle('open', open);
+  btn.innerHTML = (open ? 'Hide' : 'Show') + ' creative analysis <span class="chev">▾</span>';
+}
+
+function toggleEv(row) {
+  const next = row.nextElementSibling;
+  if (!next || !next.classList.contains('intel-evidence')) return;
+  const isOpen = next.classList.toggle('open');
+  const btn = row.querySelector('.btn');
+  if (btn) {
+    btn.classList.toggle('open', isOpen);
+    btn.innerHTML = '<span>' + (isOpen ? 'Hide' : 'View') + ' sources</span> <span class="chev">▾</span>';
+  }
+}
+
+function toggleReco(row) {
+  const allRows = document.querySelectorAll('.reco-row');
+  const wasOpen = row.classList.contains('open');
+  allRows.forEach(r => r.classList.remove('open'));
+  if (!wasOpen) row.classList.add('open');
+}
+
+// ═════════════════════════════════════════════════════════════════
+//   FILTER FEEDBACK
+// ═════════════════════════════════════════════════════════════════
+document.querySelectorAll('.intel-filter').forEach(f => {
+  f.addEventListener('click', () => {
+    document.querySelectorAll('.intel-filter').forEach(x => x.classList.remove('active'));
+    f.classList.add('active');
+    const filter = f.dataset.filter;
+    document.querySelectorAll('#intelBody .row').forEach(row => {
+      const ev = row.nextElementSibling;
+      const match = filter === 'all' || row.dataset.strength === filter;
+      row.style.display = match ? '' : 'none';
+      if (ev && ev.classList.contains('intel-evidence')) {
+        ev.style.display = match ? '' : 'none';
+        if (!match) ev.classList.remove('open');
+      }
+    });
+  });
+});
+
+// Matrix year switcher (visual feedback only - data is 2025 snapshot)
+document.querySelectorAll('.matrix-control').forEach(c => {
+  c.addEventListener('click', () => {
+    document.querySelectorAll('.matrix-control').forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    // Subtle pulse on matrix
+    const m = document.getElementById('matrix');
+    m.style.transition = 'opacity .2s';
+    m.style.opacity = '0.4';
+    setTimeout(() => { m.style.opacity = '1'; }, 250);
+  });
+});
+
+// ═════════════════════════════════════════════════════════════════
+//   ⌘K shortcut visual feedback
+// ═════════════════════════════════════════════════════════════════
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    const s = document.querySelector('.nav-search');
+    if (s) {
+      s.style.borderColor = 'var(--blue)';
+      s.style.color = 'var(--blue)';
+      setTimeout(() => { s.style.borderColor = ''; s.style.color = ''; }, 500);
+    }
+  }
+});
+</script>
+</body>
+</html>
